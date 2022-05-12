@@ -19,6 +19,7 @@ ORDERED_OBJS += \
 "./demos/demo5.obj" \
 "./demos/demo6.obj" \
 "./demos/demo7.obj" \
+"./demos/demo8.obj" \
 "./helper/helper.obj" \
 "./source/DSP281x_Adc.obj" \
 "./source/DSP281x_CSMPasswords.obj" \
@@ -190,8 +191,8 @@ allDemo.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DSP281x_GlobalVariableDefs.obj" "main.obj" "demos\demo1.obj" "demos\demo2.obj" "demos\demo3.obj" "demos\demo4.obj" "demos\demo5.obj" "demos\demo6.obj" "demos\demo7.obj" "helper\helper.obj" "source\DSP281x_Adc.obj" "source\DSP281x_CSMPasswords.obj" "source\DSP281x_CodeStartBranch.obj" "source\DSP281x_CpuTimers.obj" "source\DSP281x_DBGIER.obj" "source\DSP281x_DefaultIsr.obj" "source\DSP281x_ECan.obj" "source\DSP281x_Ev.obj" "source\DSP281x_Gpio.obj" "source\DSP281x_InitPeripherals.obj" "source\DSP281x_MemCopy.obj" "source\DSP281x_PieCtrl.obj" "source\DSP281x_PieVect.obj" "source\DSP281x_Sci.obj" "source\DSP281x_Spi.obj" "source\DSP281x_SysCtrl.obj" "source\DSP281x_XIntrupt.obj" "source\DSP281x_Xintf.obj" "source\DSP281x_XintfBootReset.obj" "source\DSP281x_usDelay.obj" 
-	-$(RM) "DSP281x_GlobalVariableDefs.d" "main.d" "demos\demo1.d" "demos\demo2.d" "demos\demo3.d" "demos\demo4.d" "demos\demo5.d" "demos\demo6.d" "demos\demo7.d" "helper\helper.d" "source\DSP281x_Adc.d" "source\DSP281x_CpuTimers.d" "source\DSP281x_DefaultIsr.d" "source\DSP281x_ECan.d" "source\DSP281x_Ev.d" "source\DSP281x_Gpio.d" "source\DSP281x_InitPeripherals.d" "source\DSP281x_MemCopy.d" "source\DSP281x_PieCtrl.d" "source\DSP281x_PieVect.d" "source\DSP281x_Sci.d" "source\DSP281x_Spi.d" "source\DSP281x_SysCtrl.d" "source\DSP281x_XIntrupt.d" "source\DSP281x_Xintf.d" 
+	-$(RM) "DSP281x_GlobalVariableDefs.obj" "main.obj" "demos\demo1.obj" "demos\demo2.obj" "demos\demo3.obj" "demos\demo4.obj" "demos\demo5.obj" "demos\demo6.obj" "demos\demo7.obj" "demos\demo8.obj" "helper\helper.obj" "source\DSP281x_Adc.obj" "source\DSP281x_CSMPasswords.obj" "source\DSP281x_CodeStartBranch.obj" "source\DSP281x_CpuTimers.obj" "source\DSP281x_DBGIER.obj" "source\DSP281x_DefaultIsr.obj" "source\DSP281x_ECan.obj" "source\DSP281x_Ev.obj" "source\DSP281x_Gpio.obj" "source\DSP281x_InitPeripherals.obj" "source\DSP281x_MemCopy.obj" "source\DSP281x_PieCtrl.obj" "source\DSP281x_PieVect.obj" "source\DSP281x_Sci.obj" "source\DSP281x_Spi.obj" "source\DSP281x_SysCtrl.obj" "source\DSP281x_XIntrupt.obj" "source\DSP281x_Xintf.obj" "source\DSP281x_XintfBootReset.obj" "source\DSP281x_usDelay.obj" 
+	-$(RM) "DSP281x_GlobalVariableDefs.d" "main.d" "demos\demo1.d" "demos\demo2.d" "demos\demo3.d" "demos\demo4.d" "demos\demo5.d" "demos\demo6.d" "demos\demo7.d" "demos\demo8.d" "helper\helper.d" "source\DSP281x_Adc.d" "source\DSP281x_CpuTimers.d" "source\DSP281x_DefaultIsr.d" "source\DSP281x_ECan.d" "source\DSP281x_Ev.d" "source\DSP281x_Gpio.d" "source\DSP281x_InitPeripherals.d" "source\DSP281x_MemCopy.d" "source\DSP281x_PieCtrl.d" "source\DSP281x_PieVect.d" "source\DSP281x_Sci.d" "source\DSP281x_Spi.d" "source\DSP281x_SysCtrl.d" "source\DSP281x_XIntrupt.d" "source\DSP281x_Xintf.d" 
 	-$(RM) "source\DSP281x_CSMPasswords.d" "source\DSP281x_CodeStartBranch.d" "source\DSP281x_DBGIER.d" "source\DSP281x_XintfBootReset.d" "source\DSP281x_usDelay.d" 
 	-@echo 'Finished clean'
 	-@echo ' '

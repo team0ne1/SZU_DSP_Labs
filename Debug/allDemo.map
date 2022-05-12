@@ -1,10 +1,10 @@
 ******************************************************************************
              TMS320C2000 Linker PC v21.6.0                     
 ******************************************************************************
->> Linked Thu May 12 18:33:32 2022
+>> Linked Fri May 13 00:32:12 2022
 
 OUTPUT FILE NAME:   <allDemo.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 00101da1
+ENTRY POINT SYMBOL: "_c_int00"  address: 00101b63
 
 
 MEMORY CONFIGURATION
@@ -14,7 +14,7 @@ MEMORY CONFIGURATION
 PAGE 0:
   RAMM0                 00000000   00000400  00000080  00000380  RWIX
   BEGIN                 003f8000   00000002  00000002  00000000  RWIX
-  PRAMH0                003f8002   00000ffe  000000c9  00000f35  RWIX
+  PRAMH0                003f8002   00000ffe  000000bc  00000f42  RWIX
   RESET                 003fffc0   00000002  00000000  00000002  RWIX
 
 PAGE 1:
@@ -44,7 +44,7 @@ PAGE 1:
   EVB                   00007500   00000040  00000032  0000000e  RWIX
   SCIB                  00007750   00000010  00000010  00000000  RWIX
   MCBSPA                00007800   00000040  00000025  0000001b  RWIX
-  DRAMH1                00100000   0000ffff  0000278d  0000d872  RWIX
+  DRAMH1                00100000   0000ffff  0000294d  0000d6b2  RWIX
   CSM_PWL               003f7ff8   00000008  00000008  00000000  RWIX
   DRAMH0                003f9000   00001000  000006d8  00000928  RWIX
 
@@ -61,31 +61,30 @@ codestart
 *          0    003f8000    00000002     
                   003f8000    00000002     DSP281x_CodeStartBranch.obj (codestart)
 
-.cinit     0    003f8002    000000c5     
+.cinit     0    003f8002    000000b8     
                   003f8002    00000026     rts2800_ml.lib : defs.c.obj (.cinit:__ftable)
                   003f8028    0000001b                    : host_device.c.obj (.cinit:__device)
                   003f8043    0000000e                    : host_device.c.obj (.cinit:__stream)
                   003f8051    0000000e                    : exit.c.obj (.cinit)
-                  003f805f    0000000d     demo3.obj (.cinit:_msg)
-                  003f806c    0000000d     demo7.obj (.cinit:_msg)
-                  003f8079    0000000d     demo4.obj (.cinit)
-                  003f8086    00000008     demo3.obj (.cinit)
-                  003f808e    00000008     demo7.obj (.cinit)
-                  003f8096    00000005     rts2800_ml.lib : _lock.c.obj (.cinit:__lock)
-                  003f809b    00000005                    : _lock.c.obj (.cinit:__unlock)
-                  003f80a0    00000005     demo1.obj (.cinit)
-                  003f80a5    00000004     demo3.obj (.cinit:_DisData_Bit)
-                  003f80a9    00000004     demo7.obj (.cinit:_DisData_Bit)
-                  003f80ad    00000004     demo5.obj (.cinit)
-                  003f80b1    00000004     rts2800_ml.lib : defs.c.obj (.cinit)
-                  003f80b5    00000004                    : errno.c.obj (.cinit)
-                  003f80b9    00000004                    : fopen.c.obj (.cinit)
-                  003f80bd    00000004                    : memory.c.obj (.cinit)
-                  003f80c1    00000004                    : open.c.obj (.cinit)
-                  003f80c5    00000002     --HOLE-- [fill = 0]
+                  003f805f    0000000d     demo8.obj (.cinit:_msg)
+                  003f806c    0000000d     demo4.obj (.cinit)
+                  003f8079    00000008     demo3.obj (.cinit)
+                  003f8081    00000008     demo7.obj (.cinit)
+                  003f8089    00000005     rts2800_ml.lib : _lock.c.obj (.cinit:__lock)
+                  003f808e    00000005                    : _lock.c.obj (.cinit:__unlock)
+                  003f8093    00000005     demo1.obj (.cinit)
+                  003f8098    00000004     demo8.obj (.cinit:_DisData_Bit)
+                  003f809c    00000004     demo5.obj (.cinit)
+                  003f80a0    00000004     demo8.obj (.cinit)
+                  003f80a4    00000004     rts2800_ml.lib : defs.c.obj (.cinit)
+                  003f80a8    00000004                    : errno.c.obj (.cinit)
+                  003f80ac    00000004                    : fopen.c.obj (.cinit)
+                  003f80b0    00000004                    : memory.c.obj (.cinit)
+                  003f80b4    00000004                    : open.c.obj (.cinit)
+                  003f80b8    00000002     --HOLE-- [fill = 0]
 
-ramfuncs   0    003f80c7    00000004     
-                  003f80c7    00000004     DSP281x_usDelay.obj (ramfuncs)
+ramfuncs   0    003f80ba    00000004     
+                  003f80ba    00000004     DSP281x_usDelay.obj (ramfuncs)
 
 DevEmuRegsFile 
 *          1    00000880    000000d0     UNINITIALIZED
@@ -187,90 +186,88 @@ McbspaRegsFile
 *          1    00007800    00000025     UNINITIALIZED
                   00007800    00000025     DSP281x_GlobalVariableDefs.obj (McbspaRegsFile)
 
-.text      1    00100000    00002477     
+.text      1    00100000    0000224c     
                   00100000    0000069c     rts2800_ml.lib : _printfi.c.obj (.text)
                   0010069c    000005fc                    : _printfi.c.obj (.text:__TI_printfi)
                   00100c98    00000289                    : memory.c.obj (.text)
-                  00100f21    0000014f     demo3.obj (.text)
-                  00101070    0000014f     DSP281x_DefaultIsr.obj (.text:retain)
-                  001011bf    0000011e     rts2800_ml.lib : fopen.c.obj (.text)
-                  001012dd    0000011b     demo7.obj (.text)
-                  001013f8    00000107     rts2800_ml.lib : ll_div28.asm.obj (.text)
-                  001014ff    000000fd     demo2.obj (.text)
-                  001015fc    000000ac     rts2800_ml.lib : s_scalbn.c.obj (.text)
-                  001016a8    000000a3                    : fputs.c.obj (.text)
-                  0010174b    0000009c                    : fd_add28.asm.obj (.text)
-                  001017e7    00000094                    : trgmsg.c.obj (.text)
-                  0010187b    0000008b                    : fd_div28.asm.obj (.text)
-                  00101906    00000086     DSP281x_SysCtrl.obj (.text)
-                  0010198c    00000083     rts2800_ml.lib : fd_mpy28.asm.obj (.text)
-                  00101a0f    00000079                    : setvbuf.c.obj (.text)
-                  00101a88    0000006f                    : open.c.obj (.text)
-                  00101af7    0000006b                    : fflush.c.obj (.text)
-                  00101b62    0000006a     DSP281x_CpuTimers.obj (.text)
-                  00101bcc    00000067     rts2800_ml.lib : _io_perm.c.obj (.text)
-                  00101c33    0000005d                    : hostlseek.c.obj (.text)
-                  00101c90    0000005c                    : s_frexp.c.obj (.text)
-                  00101cec    0000005b                    : fclose.c.obj (.text)
-                  00101d47    0000005a                    : fs_mpy28.asm.obj (.text)
-                  00101da1    00000054                    : boot28.asm.obj (.text)
-                  00101df5    00000050                    : getdevice.c.obj (.text)
-                  00101e45    0000004f                    : fputc.c.obj (.text)
-                  00101e94    0000003f                    : hostrename.c.obj (.text)
-                  00101ed3    0000003d                    : fseek.c.obj (.text)
-                  00101f10    00000039                    : hostopen.c.obj (.text)
-                  00101f49    00000038                    : hostread.c.obj (.text)
-                  00101f81    00000038                    : hostwrite.c.obj (.text)
-                  00101fb9    00000035     demo4.obj (.text:retain)
-                  00101fee    00000034     rts2800_ml.lib : printf.c.obj (.text)
-                  00102022    00000033                    : close.c.obj (.text)
-                  00102055    00000031                    : atoi.c.obj (.text)
-                  00102086    0000002e                    : _ltoa.c.obj (.text)
-                  001020b4    0000002a                    : fd_cmp28.asm.obj (.text)
-                  001020de    0000002a                    : l_div28.asm.obj (.text)
-                  00102108    00000029                    : exit.c.obj (.text)
-                  00102131    00000029                    : fs_tol28.asm.obj (.text)
-                  0010215a    00000028     DSP281x_PieCtrl.obj (.text)
-                  00102182    00000027     rts2800_ml.lib : hostclose.c.obj (.text)
-                  001021a9    00000025     demo7.obj (.text:retain)
-                  001021ce    00000025     rts2800_ml.lib : hostunlink.c.obj (.text)
-                  001021f3    00000024                    : cpy_tbl.c.obj (.text)
-                  00102217    00000023                    : s_copysign.c.obj (.text)
-                  0010223a    00000022                    : i_div28.asm.obj (.text)
-                  0010225c    00000021                    : fd_toi28.asm.obj (.text)
-                  0010227d    00000020     DSP281x_PieVect.obj (.text)
-                  0010229d    0000001f     rts2800_ml.lib : fd_tol28.asm.obj (.text)
-                  001022bc    0000001e                    : ll_cmp28.asm.obj (.text)
-                  001022da    0000001d                    : i_tofd28.asm.obj (.text)
-                  001022f7    0000001d                    : memcpy.c.obj (.text)
-                  00102314    0000001c                    : fs_tofd28.asm.obj (.text)
-                  00102330    0000001c                    : l_tofd28.asm.obj (.text)
-                  0010234c    00000019                    : unlink.c.obj (.text)
-                  00102365    00000018                    : ll_aox28.asm.obj (.text)
-                  0010237d    00000018                    : lseek.c.obj (.text)
-                  00102395    00000018                    : write.c.obj (.text)
-                  001023ad    00000015                    : strncpy.c.obj (.text)
-                  001023c2    00000011                    : args_main.c.obj (.text)
-                  001023d3    00000010                    : memccpy.c.obj (.text)
-                  001023e3    0000000e     demo6.obj (.text:retain)
-                  001023f1    0000000e     rts2800_ml.lib : fd_sub28.asm.obj (.text)
-                  001023ff    0000000d                    : memchr.c.obj (.text)
-                  0010240c    0000000b                    : strchr.c.obj (.text)
-                  00102417    0000000b                    : u_div28.asm.obj (.text)
-                  00102422    0000000a                    : strcmp.c.obj (.text)
-                  0010242c    00000009                    : _lock.c.obj (.text)
-                  00102435    00000009                    : fd_neg28.asm.obj (.text)
-                  0010243e    00000008     DSP281x_CodeStartBranch.obj (.text)
-                  00102446    00000008     DSP281x_XintfBootReset.obj (.text)
-                  0010244e    00000008     rts2800_ml.lib : strlen.c.obj (.text)
-                  00102456    00000008                    : wcslen.c.obj (.text)
-                  0010245e    00000007                    : memset.c.obj (.text)
-                  00102465    00000005                    : strcpy.c.obj (.text)
-                  0010246a    00000004     main.obj (.text)
-                  0010246e    00000003     DSP281x_DBGIER.obj (.text)
-                  00102471    00000003     rts2800_ml.lib : remove.c.obj (.text)
-                  00102474    00000002                    : pre_init.c.obj (.text)
-                  00102476    00000001                    : startup.c.obj (.text)
+                  00100f21    00000193     demo8.obj (.text)
+                  001010b4    0000014f     DSP281x_DefaultIsr.obj (.text:retain)
+                  00101203    0000011e     rts2800_ml.lib : fopen.c.obj (.text)
+                  00101321    00000107                    : ll_div28.asm.obj (.text)
+                  00101428    000000ac                    : s_scalbn.c.obj (.text)
+                  001014d4    000000a3                    : fputs.c.obj (.text)
+                  00101577    0000009c                    : fd_add28.asm.obj (.text)
+                  00101613    00000094                    : trgmsg.c.obj (.text)
+                  001016a7    0000008b                    : fd_div28.asm.obj (.text)
+                  00101732    00000086     DSP281x_SysCtrl.obj (.text)
+                  001017b8    00000083     rts2800_ml.lib : fd_mpy28.asm.obj (.text)
+                  0010183b    00000079                    : setvbuf.c.obj (.text)
+                  001018b4    0000006f                    : open.c.obj (.text)
+                  00101923    0000006b                    : fflush.c.obj (.text)
+                  0010198e    00000067                    : _io_perm.c.obj (.text)
+                  001019f5    0000005d                    : hostlseek.c.obj (.text)
+                  00101a52    0000005c                    : s_frexp.c.obj (.text)
+                  00101aae    0000005b                    : fclose.c.obj (.text)
+                  00101b09    0000005a                    : fs_mpy28.asm.obj (.text)
+                  00101b63    00000054                    : boot28.asm.obj (.text)
+                  00101bb7    00000050                    : getdevice.c.obj (.text)
+                  00101c07    0000004f                    : fputc.c.obj (.text)
+                  00101c56    0000003f                    : hostrename.c.obj (.text)
+                  00101c95    0000003d                    : fseek.c.obj (.text)
+                  00101cd2    00000039                    : hostopen.c.obj (.text)
+                  00101d0b    00000038                    : hostread.c.obj (.text)
+                  00101d43    00000038                    : hostwrite.c.obj (.text)
+                  00101d7b    00000035     demo4.obj (.text:retain)
+                  00101db0    00000034     rts2800_ml.lib : printf.c.obj (.text)
+                  00101de4    00000033                    : close.c.obj (.text)
+                  00101e17    00000031                    : atoi.c.obj (.text)
+                  00101e48    0000002e                    : _ltoa.c.obj (.text)
+                  00101e76    0000002a                    : fd_cmp28.asm.obj (.text)
+                  00101ea0    0000002a                    : l_div28.asm.obj (.text)
+                  00101eca    00000029                    : exit.c.obj (.text)
+                  00101ef3    00000029                    : fs_tol28.asm.obj (.text)
+                  00101f1c    00000028     DSP281x_PieCtrl.obj (.text)
+                  00101f44    00000027     rts2800_ml.lib : hostclose.c.obj (.text)
+                  00101f6b    00000025     demo7.obj (.text:retain)
+                  00101f90    00000025     rts2800_ml.lib : hostunlink.c.obj (.text)
+                  00101fb5    00000024                    : cpy_tbl.c.obj (.text)
+                  00101fd9    00000023                    : s_copysign.c.obj (.text)
+                  00101ffc    00000022                    : i_div28.asm.obj (.text)
+                  0010201e    00000021                    : fd_toi28.asm.obj (.text)
+                  0010203f    00000020     DSP281x_PieVect.obj (.text)
+                  0010205f    0000001f     rts2800_ml.lib : fd_tol28.asm.obj (.text)
+                  0010207e    0000001e                    : ll_cmp28.asm.obj (.text)
+                  0010209c    0000001d                    : i_tofd28.asm.obj (.text)
+                  001020b9    0000001d                    : memcpy.c.obj (.text)
+                  001020d6    0000001c                    : fs_tofd28.asm.obj (.text)
+                  001020f2    0000001c                    : l_tofd28.asm.obj (.text)
+                  0010210e    00000019                    : unlink.c.obj (.text)
+                  00102127    00000018                    : ll_aox28.asm.obj (.text)
+                  0010213f    00000018                    : lseek.c.obj (.text)
+                  00102157    00000018                    : write.c.obj (.text)
+                  0010216f    00000015                    : strncpy.c.obj (.text)
+                  00102184    00000013     DSP281x_Adc.obj (.text)
+                  00102197    00000011     rts2800_ml.lib : args_main.c.obj (.text)
+                  001021a8    00000010                    : memccpy.c.obj (.text)
+                  001021b8    0000000e     demo6.obj (.text:retain)
+                  001021c6    0000000e     rts2800_ml.lib : fd_sub28.asm.obj (.text)
+                  001021d4    0000000d                    : memchr.c.obj (.text)
+                  001021e1    0000000b                    : strchr.c.obj (.text)
+                  001021ec    0000000b                    : u_div28.asm.obj (.text)
+                  001021f7    0000000a                    : strcmp.c.obj (.text)
+                  00102201    00000009                    : _lock.c.obj (.text)
+                  0010220a    00000009                    : fd_neg28.asm.obj (.text)
+                  00102213    00000008     DSP281x_CodeStartBranch.obj (.text)
+                  0010221b    00000008     DSP281x_XintfBootReset.obj (.text)
+                  00102223    00000008     rts2800_ml.lib : strlen.c.obj (.text)
+                  0010222b    00000008                    : wcslen.c.obj (.text)
+                  00102233    00000007                    : memset.c.obj (.text)
+                  0010223a    00000005                    : strcpy.c.obj (.text)
+                  0010223f    00000004     main.obj (.text)
+                  00102243    00000003     DSP281x_DBGIER.obj (.text)
+                  00102246    00000003     rts2800_ml.lib : remove.c.obj (.text)
+                  00102249    00000002                    : pre_init.c.obj (.text)
+                  0010224b    00000001                    : startup.c.obj (.text)
 
 CsmPwlFile 
 *          1    003f7ff8    00000008     UNINITIALIZED
@@ -284,33 +281,32 @@ CsmPwlFile
 .stack     1    00000400    00000400     UNINITIALIZED
                   00000400    00000400     --HOLE--
 
-.ebss      1    00102478    000001f6     UNINITIALIZED
-                  00102478    00000008     rts2800_ml.lib : hostopen.c.obj (.ebss:_parmbuf)
-                  00102480    000000a0                    : defs.c.obj (.ebss:___TI_tmpnams)
-                  00102520    00000018     DSP281x_CpuTimers.obj (.ebss)
-                  00102538    00000006     demo5.obj (.ebss)
-                  0010253e    00000002     rts2800_ml.lib : _lock.c.obj (.ebss:__lock)
-                  00102540    00000078                    : defs.c.obj (.ebss:__ftable)
-                  001025b8    00000006                    : exit.c.obj (.ebss)
-                  001025be    00000002                    : _lock.c.obj (.ebss:__unlock)
-                  001025c0    00000048                    : host_device.c.obj (.ebss:__device)
-                  00102608    00000028                    : host_device.c.obj (.ebss:__stream)
-                  00102630    0000000a     demo3.obj (.ebss:_msg)
-                  0010263a    00000004     demo3.obj (.ebss:_DisData_Bit)
-                  0010263e    00000002     demo1.obj (.ebss)
-                  00102640    0000000a     demo7.obj (.ebss:_msg)
-                  0010264a    00000009     demo2.obj (.ebss:_key_press)
-                  00102653    00000004     demo7.obj (.ebss:_DisData_Bit)
-                  00102657    00000001     rts2800_ml.lib : defs.c.obj (.ebss)
-                  00102658    00000004     demo4.obj (.ebss)
-                  0010265c    00000004     demo6.obj (.ebss)
-                  00102660    00000004     rts2800_ml.lib : memory.c.obj (.ebss)
-                  00102664    00000003     demo7.obj (.ebss)
-                  00102667    00000002     demo2.obj (.ebss)
-                  00102669    00000002     demo3.obj (.ebss)
-                  0010266b    00000001     rts2800_ml.lib : errno.c.obj (.ebss)
-                  0010266c    00000001                    : fopen.c.obj (.ebss)
-                  0010266d    00000001                    : open.c.obj (.ebss)
+.ebss      1    0010224c    000005e1     UNINITIALIZED
+                  0010224c    00000028     rts2800_ml.lib : host_device.c.obj (.ebss:__stream)
+                  00102274    0000000a     demo8.obj (.ebss:_msg)
+                  0010227e    00000002     rts2800_ml.lib : _lock.c.obj (.ebss:__lock)
+                  00102280    00000400     demo8.obj (.ebss:_SampleTable)
+                  00102680    000000a0     rts2800_ml.lib : defs.c.obj (.ebss:___TI_tmpnams)
+                  00102720    00000018     DSP281x_CpuTimers.obj (.ebss)
+                  00102738    00000008     rts2800_ml.lib : hostopen.c.obj (.ebss:_parmbuf)
+                  00102740    00000078                    : defs.c.obj (.ebss:__ftable)
+                  001027b8    00000006     demo5.obj (.ebss)
+                  001027be    00000002     rts2800_ml.lib : _lock.c.obj (.ebss:__unlock)
+                  001027c0    00000048                    : host_device.c.obj (.ebss:__device)
+                  00102808    00000006                    : exit.c.obj (.ebss)
+                  0010280e    00000004     demo8.obj (.ebss:_DisData_Bit)
+                  00102812    00000004     demo4.obj (.ebss)
+                  00102816    00000004     demo6.obj (.ebss)
+                  0010281a    00000004     rts2800_ml.lib : memory.c.obj (.ebss)
+                  0010281e    00000003     demo7.obj (.ebss)
+                  00102821    00000001     rts2800_ml.lib : defs.c.obj (.ebss)
+                  00102822    00000002     demo1.obj (.ebss)
+                  00102824    00000002     demo2.obj (.ebss)
+                  00102826    00000002     demo3.obj (.ebss)
+                  00102828    00000002     demo8.obj (.ebss)
+                  0010282a    00000001     rts2800_ml.lib : errno.c.obj (.ebss)
+                  0010282b    00000001                    : fopen.c.obj (.ebss)
+                  0010282c    00000001                    : open.c.obj (.ebss)
 
 .esysmem   1    003f9000    00000400     UNINITIALIZED
                   003f9000    00000004     rts2800_ml.lib : memory.c.obj (.esysmem)
@@ -339,8 +335,8 @@ reset_vec
 *          0    0000007e    00000002     
                   0000007e    00000002     DSP281x_XintfBootReset.obj (reset_vec)
 
-.cio       1    00102680    00000120     UNINITIALIZED
-                  00102680    00000120     rts2800_ml.lib : trgmsg.c.obj (.cio)
+.cio       1    00102840    00000120     UNINITIALIZED
+                  00102840    00000120     rts2800_ml.lib : trgmsg.c.obj (.cio)
 
 MODULE SUMMARY
 
@@ -353,29 +349,31 @@ MODULE SUMMARY
        Total:                           4      0                  1401              
                                                                                     
     .\demos\
-       demo7.obj                        320    57                 17                
-       demo3.obj                        335    25                 16                
-       demo2.obj                        253    20                 11                
+       demo8.obj                        403    21                 1040              
        demo4.obj                        53     24                 4                 
+       demo7.obj                        37     40                 3                 
        demo5.obj                        0      50                 6                 
+       demo2.obj                        0      20                 2                 
        demo6.obj                        14     0                  4                 
+       demo3.obj                        0      8                  2                 
        demo1.obj                        0      5                  2                 
     +--+--------------------------------+------+------------------+--------------------+
-       Total:                           975    181                60                
+       Total:                           507    168                1063              
                                                                                     
     .\source\
        DSP281x_DefaultIsr.obj           335    0                  0                 
        DSP281x_PieVect.obj              32     256                0                 
        DSP281x_SysCtrl.obj              134    0                  0                 
-       DSP281x_CpuTimers.obj            106    0                  24                
        DSP281x_CSMPasswords.obj         0      126                0                 
        DSP281x_PieCtrl.obj              40     0                  0                 
+       DSP281x_CpuTimers.obj            0      0                  24                
+       DSP281x_Adc.obj                  19     0                  0                 
        DSP281x_CodeStartBranch.obj      10     0                  0                 
        DSP281x_XintfBootReset.obj       8      2                  0                 
        DSP281x_usDelay.obj              4      0                  0                 
        DSP281x_DBGIER.obj               3      0                  0                 
     +--+--------------------------------+------+------------------+--------------------+
-       Total:                           672    384                24                
+       Total:                           585    384                24                
                                                                                     
     E:\ccs11.2\installDir\ccs\tools\compiler\ti-cgt-c2000_21.6.0.LTS\lib\rts2800_ml.lib
        _printfi.c.obj                   3224   66                 0                 
@@ -455,7 +453,7 @@ MODULE SUMMARY
        Heap:                            0      0                  1024              
        Stack:                           0      0                  1024              
     +--+--------------------------------+------+------------------+--------------------+
-       Grand Total:                     9341   1049               4239              
+       Grand Total:                     8786   1036               5242              
 
 
 GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
@@ -509,44 +507,45 @@ address     data page           name
 
 00007800     1e0 (00007800)     _McbspaRegs
 
-00102478    4091 (00102440)     _parmbuf
+0010224c    4089 (00102240)     __stream
+0010227e    4089 (00102240)     __lock
 
-00102480    4092 (00102480)     ___TI_tmpnams
+00102280    408a (00102280)     _SampleTable
 
-00102520    4094 (00102500)     _CpuTimer0
-00102528    4094 (00102500)     _CpuTimer1
-00102530    4094 (00102500)     _CpuTimer2
-00102538    4094 (00102500)     _stop
-0010253a    4094 (00102500)     _temp5
-0010253c    4094 (00102500)     _direction
-0010253e    4094 (00102500)     __lock
+00102680    409a (00102680)     ___TI_tmpnams
 
-00102540    4095 (00102540)     __ftable
+00102720    409c (00102700)     _CpuTimer0
+00102728    409c (00102700)     _CpuTimer1
+00102730    409c (00102700)     _CpuTimer2
+00102738    409c (00102700)     _parmbuf
 
-001025b8    4096 (00102580)     ___TI_enable_exit_profile_output
-001025ba    4096 (00102580)     ___TI_cleanup_ptr
-001025bc    4096 (00102580)     ___TI_dtors_ptr
-001025be    4096 (00102580)     __unlock
+00102740    409d (00102740)     __ftable
 
-001025c0    4097 (001025c0)     __device
+001027b8    409e (00102780)     _stop
+001027ba    409e (00102780)     _temp5
+001027bc    409e (00102780)     _direction
+001027be    409e (00102780)     __unlock
 
-00102608    4098 (00102600)     __stream
-0010263e    4098 (00102600)     _led_status
+001027c0    409f (001027c0)     __device
 
-0010264a    4099 (00102640)     _key_press
-00102657    4099 (00102640)     ___TI_ft_end
-00102658    4099 (00102640)     _counter
-00102659    4099 (00102640)     _light_status
-0010265a    4099 (00102640)     _counter_p
-0010265c    4099 (00102640)     _WakeCount
-0010265e    4099 (00102640)     _LoopCount
-00102667    4099 (00102640)     _B_input
-00102668    4099 (00102640)     _B_output
-00102669    4099 (00102640)     _DisData
-0010266a    4099 (00102640)     _Loop
-0010266b    4099 (00102640)     _errno
+00102808    40a0 (00102800)     ___TI_enable_exit_profile_output
+0010280a    40a0 (00102800)     ___TI_cleanup_ptr
+0010280c    40a0 (00102800)     ___TI_dtors_ptr
+00102812    40a0 (00102800)     _counter
+00102813    40a0 (00102800)     _light_status
+00102814    40a0 (00102800)     _counter_p
+00102816    40a0 (00102800)     _WakeCount
+00102818    40a0 (00102800)     _LoopCount
+00102821    40a0 (00102800)     ___TI_ft_end
+00102822    40a0 (00102800)     _led_status
+00102824    40a0 (00102800)     _B_input
+00102825    40a0 (00102800)     _B_output
+00102826    40a0 (00102800)     _DisData
+00102827    40a0 (00102800)     _Loop
+00102829    40a0 (00102800)     _showdata
+0010282a    40a0 (00102800)     _errno
 
-00102680    409a (00102680)     __CIOBUF_
+00102840    40a1 (00102840)     __CIOBUF_
 
 003f7ff8    fdff (003f7fc0)     _CsmPwl
 
@@ -562,286 +561,269 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 page  address   name                            
 ----  -------   ----                            
 1     00100000  .text                           
-1     00102108  C$$EXIT                         
-1     0010183a  C$$IO$$                         
-1     0010174b  FD$$ADD                         
-1     001020b4  FD$$CMP                         
-1     0010187b  FD$$DIV                         
-1     0010198c  FD$$MPY                         
-1     00102435  FD$$NEG                         
-1     001023f1  FD$$SUB                         
-1     0010225c  FD$$TOI                         
-1     0010229d  FD$$TOL                         
-1     00101d47  FS$$MPY                         
-1     00102314  FS$$TOFD                        
-1     00102131  FS$$TOL                         
-1     0010223a  I$$DIV                          
-1     0010224b  I$$MOD                          
-1     001022da  I$$TOFD                         
-1     001020de  L$$DIV                          
-1     001020ed  L$$MOD                          
-1     00102330  L$$TOFD                         
-1     00102365  LL$$AND                         
-1     001022bc  LL$$CMP                         
-1     001013f8  LL$$DIV                         
-1     00101434  LL$$MOD                         
-1     0010236d  LL$$OR                          
-1     00102375  LL$$XOR                         
-1     00102417  U$$DIV                          
-1     0010241c  U$$MOD                          
-1     001020fb  UL$$DIV                         
-1     00102102  UL$$MOD                         
-1     001022ce  ULL$$CMP                        
-1     0010146e  ULL$$DIV                        
-1     0010149d  ULL$$MOD                        
-1     001010e3  _ADCINT_ISR                     
+1     00101eca  C$$EXIT                         
+1     00101666  C$$IO$$                         
+1     00101577  FD$$ADD                         
+1     00101e76  FD$$CMP                         
+1     001016a7  FD$$DIV                         
+1     001017b8  FD$$MPY                         
+1     0010220a  FD$$NEG                         
+1     001021c6  FD$$SUB                         
+1     0010201e  FD$$TOI                         
+1     0010205f  FD$$TOL                         
+1     00101b09  FS$$MPY                         
+1     001020d6  FS$$TOFD                        
+1     00101ef3  FS$$TOL                         
+1     00101ffc  I$$DIV                          
+1     0010200d  I$$MOD                          
+1     0010209c  I$$TOFD                         
+1     00101ea0  L$$DIV                          
+1     00101eaf  L$$MOD                          
+1     001020f2  L$$TOFD                         
+1     00102127  LL$$AND                         
+1     0010207e  LL$$CMP                         
+1     00101321  LL$$DIV                         
+1     0010135d  LL$$MOD                         
+1     0010212f  LL$$OR                          
+1     00102137  LL$$XOR                         
+1     001021ec  U$$DIV                          
+1     001021f1  U$$MOD                          
+1     00101ebd  UL$$DIV                         
+1     00101ec4  UL$$MOD                         
+1     00102090  ULL$$CMP                        
+1     00101397  ULL$$DIV                        
+1     001013c6  ULL$$MOD                        
+1     00101127  _ADCINT_ISR                     
 1     00007100  _AdcRegs                        
-1     00102667  _B_input                        
-1     00102668  _B_output                       
-1     00101129  _CAPINT1_ISR                    
-1     0010112e  _CAPINT2_ISR                    
-1     00101133  _CAPINT3_ISR                    
-1     0010116f  _CAPINT4_ISR                    
-1     00101174  _CAPINT5_ISR                    
-1     00101179  _CAPINT6_ISR                    
-1     001010f2  _CMP1INT_ISR                    
-1     001010f7  _CMP2INT_ISR                    
-1     001010fc  _CMP3INT_ISR                    
-1     00101138  _CMP4INT_ISR                    
-1     0010113d  _CMP5INT_ISR                    
-1     00101142  _CMP6INT_ISR                    
-1     00101b9b  _ConfigCpuTimer                 
-1     00102520  _CpuTimer0                      
+1     00102824  _B_input                        
+1     00102825  _B_output                       
+1     0010116d  _CAPINT1_ISR                    
+1     00101172  _CAPINT2_ISR                    
+1     00101177  _CAPINT3_ISR                    
+1     001011b3  _CAPINT4_ISR                    
+1     001011b8  _CAPINT5_ISR                    
+1     001011bd  _CAPINT6_ISR                    
+1     00101136  _CMP1INT_ISR                    
+1     0010113b  _CMP2INT_ISR                    
+1     00101140  _CMP3INT_ISR                    
+1     0010117c  _CMP4INT_ISR                    
+1     00101181  _CMP5INT_ISR                    
+1     00101186  _CMP6INT_ISR                    
+1     00102720  _CpuTimer0                      
 1     00000c00  _CpuTimer0Regs                  
-1     00102528  _CpuTimer1                      
+1     00102728  _CpuTimer1                      
 1     00000c08  _CpuTimer1Regs                  
-1     00102530  _CpuTimer2                      
+1     00102730  _CpuTimer2                      
 1     00000c10  _CpuTimer2Regs                  
 1     003f7ff8  _CsmPwl                         
 1     00000ae0  _CsmRegs                        
-1     0010195b  _CsmUnlock                      
-1     0010107a  _DATALOG_ISR                    
-0     003f80c7  _DSP28x_usDelay                 
+1     00101787  _CsmUnlock                      
+1     001010be  _DATALOG_ISR                    
+0     003f80ba  _DSP28x_usDelay                 
 1     00000880  _DevEmuRegs                     
-1     00102669  _DisData                        
-1     00100f99  _DisData_Trans                  
-1     00101918  _DisableDog                     
-1     001011a6  _ECAN0INTA_ISR                  
-1     001011ab  _ECAN1INTA_ISR                  
+1     00102826  _DisData                        
+1     00101744  _DisableDog                     
+1     001011ea  _ECAN0INTA_ISR                  
+1     001011ef  _ECAN1INTA_ISR                  
 1     00006040  _ECanaLAMRegs                   
 1     000060c0  _ECanaMOTORegs                  
 1     00006080  _ECanaMOTSRegs                  
 1     00006100  _ECanaMboxes                    
 1     00006000  _ECanaRegs                      
-1     001011b0  _EMPTY_ISR                      
-1     00101084  _EMUINT_ISR                     
-1     00102179  _EnableInterrupts               
+1     001011f4  _EMPTY_ISR                      
+1     001010c8  _EMUINT_ISR                     
+1     00101f3b  _EnableInterrupts               
 1     00007400  _EvaRegs                        
 1     00007500  _EvbRegs                        
 1     00000a80  _FlashRegs                      
 1     000070e0  _GpioDataRegs                   
 1     000070c0  _GpioMuxRegs                    
-1     00102182  _HOSTclose                      
-1     00101c33  _HOSTlseek                      
-1     00101f10  _HOSTopen                       
-1     00101f49  _HOSTread                       
-1     00101e94  _HOSTrename                     
-1     001021ce  _HOSTunlink                     
-1     00101f81  _HOSTwrite                      
-1     0010108e  _ILLEGAL_ISR                    
-1     00101070  _INT13_ISR                      
-1     00101075  _INT14_ISR                      
-1     00101b62  _InitCpuTimers                  
-1     00101941  _InitPeripheralClocks           
-1     0010215a  _InitPieCtrl                    
-1     0010227d  _InitPieVectTable               
-1     00101920  _InitPll                        
-1     00101906  _InitSysCtrl                    
-1     001015ce  _Init_Keys_Gpio                 
-1     00100f21  _Init_LEDS_Gpio                 
-1     0010190e  _KickDog                        
-1     0010266a  _Loop                           
-1     0010265e  _LoopCount                      
-1     00101188  _MRINTA_ISR                     
-1     0010118d  _MXINTA_ISR                     
+1     00101f44  _HOSTclose                      
+1     001019f5  _HOSTlseek                      
+1     00101cd2  _HOSTopen                       
+1     00101d0b  _HOSTread                       
+1     00101c56  _HOSTrename                     
+1     00101f90  _HOSTunlink                     
+1     00101d43  _HOSTwrite                      
+1     001010d2  _ILLEGAL_ISR                    
+1     001010b4  _INT13_ISR                      
+1     001010b9  _INT14_ISR                      
+1     00102184  _InitAdc                        
+1     0010176d  _InitPeripheralClocks           
+1     00101f1c  _InitPieCtrl                    
+1     0010203f  _InitPieVectTable               
+1     0010174c  _InitPll                        
+1     00101732  _InitSysCtrl                    
+1     0010173a  _KickDog                        
+1     00102827  _Loop                           
+1     00102818  _LoopCount                      
+1     001011cc  _MRINTA_ISR                     
+1     001011d1  _MXINTA_ISR                     
 1     00007800  _McbspaRegs                     
-1     00101089  _NMI_ISR                        
-1     001010cf  _PDPINTA_ISR                    
-1     001010d4  _PDPINTB_ISR                    
-1     001011b5  _PIE_RESERVED                   
+1     001010cd  _NMI_ISR                        
+1     00101113  _PDPINTA_ISR                    
+1     00101118  _PDPINTB_ISR                    
+1     001011f9  _PIE_RESERVED                   
 1     00000ce0  _PieCtrlRegs                    
 1     00000d00  _PieVectTable                   
 1     003f9502  _PieVectTableInit               
-1     0010107f  _RTOSINT_ISR                    
-1     00101192  _SCIRXINTA_ISR                  
-1     0010119c  _SCIRXINTB_ISR                  
-1     00101197  _SCITXINTA_ISR                  
-1     001011a1  _SCITXINTB_ISR                  
-1     0010117e  _SPIRXINTA_ISR                  
-1     00101183  _SPITXINTA_ISR                  
-1     0010155a  _Scan_Key_Horizon               
-1     001015ae  _Scan_Key_Horizon_Vertical      
+1     001010c3  _RTOSINT_ISR                    
+1     001011d6  _SCIRXINTA_ISR                  
+1     001011e0  _SCIRXINTB_ISR                  
+1     001011db  _SCITXINTA_ISR                  
+1     001011e5  _SCITXINTB_ISR                  
+1     001011c2  _SPIRXINTA_ISR                  
+1     001011c7  _SPITXINTA_ISR                  
+1     00102280  _SampleTable                    
 1     00007050  _SciaRegs                       
 1     00007750  _ScibRegs                       
-1     00100f57  _Sellect_Bit                    
-1     0010246e  _SetDBGIER                      
+1     00102243  _SetDBGIER                      
 1     00007040  _SpiaRegs                       
 1     00007010  _SysCtrlRegs                    
-1     00101106  _T1CINT_ISR                     
-1     00101110  _T1OFINT_ISR                    
-1     00101101  _T1PINT_ISR                     
-1     0010110b  _T1UFINT_ISR                    
-1     0010111a  _T2CINT_ISR                     
-1     00101124  _T2OFINT_ISR                    
-1     00101115  _T2PINT_ISR                     
-1     0010111f  _T2UFINT_ISR                    
-1     0010114c  _T3CINT_ISR                     
-1     00101156  _T3OFINT_ISR                    
-1     00101147  _T3PINT_ISR                     
-1     00101151  _T3UFINT_ISR                    
-1     00101160  _T4CINT_ISR                     
-1     0010116a  _T4OFINT_ISR                    
-1     0010115b  _T4PINT_ISR                     
-1     00101165  _T4UFINT_ISR                    
-1     001010e8  _TINT0_ISR                      
-1     001010c0  _USER10_ISR                     
-1     001010c5  _USER11_ISR                     
-1     001010ca  _USER12_ISR                     
-1     00101093  _USER1_ISR                      
-1     00101098  _USER2_ISR                      
-1     0010109d  _USER3_ISR                      
-1     001010a2  _USER4_ISR                      
-1     001010a7  _USER5_ISR                      
-1     001010ac  _USER6_ISR                      
-1     001010b1  _USER7_ISR                      
-1     001010b6  _USER8_ISR                      
-1     001010bb  _USER9_ISR                      
-1     001010ed  _WAKEINT_ISR                    
-1     0010265c  _WakeCount                      
-1     001010d9  _XINT1_ISR                      
-1     001010de  _XINT2_ISR                      
+1     0010114a  _T1CINT_ISR                     
+1     00101154  _T1OFINT_ISR                    
+1     00101145  _T1PINT_ISR                     
+1     0010114f  _T1UFINT_ISR                    
+1     0010115e  _T2CINT_ISR                     
+1     00101168  _T2OFINT_ISR                    
+1     00101159  _T2PINT_ISR                     
+1     00101163  _T2UFINT_ISR                    
+1     00101190  _T3CINT_ISR                     
+1     0010119a  _T3OFINT_ISR                    
+1     0010118b  _T3PINT_ISR                     
+1     00101195  _T3UFINT_ISR                    
+1     001011a4  _T4CINT_ISR                     
+1     001011ae  _T4OFINT_ISR                    
+1     0010119f  _T4PINT_ISR                     
+1     001011a9  _T4UFINT_ISR                    
+1     0010112c  _TINT0_ISR                      
+1     00101104  _USER10_ISR                     
+1     00101109  _USER11_ISR                     
+1     0010110e  _USER12_ISR                     
+1     001010d7  _USER1_ISR                      
+1     001010dc  _USER2_ISR                      
+1     001010e1  _USER3_ISR                      
+1     001010e6  _USER4_ISR                      
+1     001010eb  _USER5_ISR                      
+1     001010f0  _USER6_ISR                      
+1     001010f5  _USER7_ISR                      
+1     001010fa  _USER8_ISR                      
+1     001010ff  _USER9_ISR                      
+1     00101131  _WAKEINT_ISR                    
+1     00102816  _WakeCount                      
+1     0010111d  _XINT1_ISR                      
+1     00101122  _XINT2_ISR                      
 1     00007070  _XIntruptRegs                   
 1     00000b20  _XintfRegs                      
-1     00102680  __CIOBUF_                       
+1     00102840  __CIOBUF_                       
 1     00000800  __STACK_END                     
 abs   00000400  __STACK_SIZE                    
 abs   00000400  __SYSMEM_SIZE                   
-1     0010125c  ___TI_cleanup                   
-1     001025ba  ___TI_cleanup_ptr               
-1     00101cec  ___TI_closefile                 
-1     00101af7  ___TI_doflush                   
-1     001025bc  ___TI_dtors_ptr                 
-1     001025b8  ___TI_enable_exit_profile_output
-1     00102657  ___TI_ft_end                    
+1     001012a0  ___TI_cleanup                   
+1     0010280a  ___TI_cleanup_ptr               
+1     00101aae  ___TI_closefile                 
+1     00101923  ___TI_doflush                   
+1     0010280c  ___TI_dtors_ptr                 
+1     00102808  ___TI_enable_exit_profile_output
+1     00102821  ___TI_ft_end                    
 1     00100f1f  ___TI_heap_check                
 1     00100f02  ___TI_heap_largest_available    
 1     00100ee5  ___TI_heap_total_available      
-1     00102086  ___TI_ltoa                      
+1     00101e48  ___TI_ltoa                      
 abs   ffffffff  ___TI_pprof_out_hndl            
 1     00100b12  ___TI_printfi                   
 abs   ffffffff  ___TI_prof_data_size            
 abs   ffffffff  ___TI_prof_data_start           
-1     00101c07  ___TI_rd_ok                     
-1     0010183f  ___TI_readmsg                   
-1     00102480  ___TI_tmpnams                   
-1     001017e7  ___TI_writemsg                  
-1     00101bcc  ___TI_wrt_ok                    
+1     001019c9  ___TI_rd_ok                     
+1     0010166b  ___TI_readmsg                   
+1     00102680  ___TI_tmpnams                   
+1     00101613  ___TI_writemsg                  
+1     0010198e  ___TI_wrt_ok                    
 abs   ffffffff  ___binit__                      
 abs   ffffffff  ___c_args__                     
 0     003f8002  ___cinit__                      
-1     00102477  ___etext__                      
+1     0010224c  ___etext__                      
 abs   ffffffff  ___pinit__                      
 1     00100000  ___text__                       
-1     001023c2  __args_main                     
+1     00102197  __args_main                     
 1     003f9400  __ctypes_                       
-1     001025c0  __device                        
-1     00102540  __ftable                        
-1     0010253e  __lock                          
-1     00102434  __nop                           
-1     00102430  __register_lock                 
-1     0010242c  __register_unlock               
+1     001027c0  __device                        
+1     00102740  __ftable                        
+1     0010227e  __lock                          
+1     00102209  __nop                           
+1     00102205  __register_lock                 
+1     00102201  __register_unlock               
 1     00000400  __stack                         
-1     00102608  __stream                        
+1     0010224c  __stream                        
 1     003f9000  __sys_memory                    
-1     00102476  __system_post_cinit             
-1     00102474  __system_pre_init               
-1     001025be  __unlock                        
-1     00102108  _abort                          
+1     0010224b  __system_post_cinit             
+1     00102249  __system_pre_init               
+1     001027be  __unlock                        
+1     00101eca  _abort                          
 1     00100e3f  _aligned_alloc                  
-1     00102055  _atoi                           
-1     00101da1  _c_int00                        
+1     00101e17  _atoi                           
+1     00101b63  _c_int00                        
 1     00100e12  _calloc                         
-1     00102022  _close                          
-1     001021f3  _copy_in                        
-1     00102217  _copysignl                      
-1     00102658  _counter                        
-1     0010265a  _counter_p                      
-1     00101fb9  _cpu_timer0_isr                 
-1     00100fbd  _delay1                         
-1     0010153e  _delay_c2                       
-1     001014ff  _demo2                          
-1     00101052  _demo3                          
-1     001012dd  _demo7                          
-1     0010253c  _direction                      
-1     0010266b  _errno                          
-1     0010210a  _exit                           
-1     00101d2e  _fclose                         
-1     00101b26  _fflush                         
-1     00101df5  _finddevice                     
-1     00101297  _fopen                          
-1     00101e45  _fputc                          
-1     001016a8  _fputs                          
+1     00101de4  _close                          
+1     00101fb5  _copy_in                        
+1     00101fd9  _copysignl                      
+1     00102812  _counter                        
+1     00102814  _counter_p                      
+1     00101d7b  _cpu_timer0_isr                 
+1     00100fe2  _demo8                          
+1     001027bc  _direction                      
+1     0010282a  _errno                          
+1     00101ecc  _exit                           
+1     00101af0  _fclose                         
+1     00101952  _fflush                         
+1     00101bb7  _finddevice                     
+1     001012db  _fopen                          
+1     00101c07  _fputc                          
+1     001014d4  _fputs                          
 1     00100cc3  _free                           
-1     00101279  _freopen                        
-1     00101c90  _frexpl                         
-1     00101ed3  _fseek                          
-1     00101ed3  _fseeko                         
-1     00101e10  _getdevice                      
-1     00101521  _init_key_press                 
-1     0010264a  _key_press                      
-1     001015fc  _ldexpl                         
-1     0010263e  _led_status                     
-1     00102659  _light_status                   
-1     0010237d  _lseek                          
-1     0010246a  _main                           
+1     001012bd  _freopen                        
+1     00101a52  _frexpl                         
+1     00101c95  _fseek                          
+1     00101c95  _fseeko                         
+1     00101bd2  _getdevice                      
+1     00101428  _ldexpl                         
+1     00102822  _led_status                     
+1     00102813  _light_status                   
+1     0010213f  _lseek                          
+1     0010223f  _main                           
 1     00100c98  _malloc                         
 1     00100e3f  _memalign                       
-1     001023d3  _memccpy                        
-1     001023ff  _memchr                         
-1     001022f7  _memcpy                         
-1     0010245e  _memset                         
+1     001021a8  _memccpy                        
+1     001021d4  _memchr                         
+1     001020b9  _memcpy                         
+1     00102233  _memset                         
 1     00100e0e  _minit                          
-1     00101a88  _open                           
-1     00102478  _parmbuf                        
-1     0010158f  _print_bin                      
-1     00101ff4  _printf                         
-1     00101e45  _putc                           
-1     00101e8f  _putchar                        
-1     00101738  _puts                           
+1     001018b4  _open                           
+1     00102738  _parmbuf                        
+1     00101db6  _printf                         
+1     00101c07  _putc                           
+1     00101c51  _putchar                        
+1     00101564  _puts                           
 1     00100d8b  _realloc                        
-1     00102471  _remove                         
-1     001011ba  _rsvd_ISR                       
-1     001015fc  _scalbnl                        
-1     00101a0f  _setvbuf                        
-1     00100fe8  _show86                         
-1     0010101c  _show_counter                   
-1     00100fd9  _spi_fifo_init                  
-1     00100fcc  _spi_init                       
-1     00100fe1  _spi_xmit                       
-1     00102538  _stop                           
-1     0010240c  _strchr                         
-1     00102422  _strcmp                         
-1     00102465  _strcpy                         
-1     0010244e  _strlen                         
-1     001023ad  _strncpy                        
-1     0010253a  _temp5                          
-1     0010234c  _unlink                         
-1     001023e3  _wakeint_isr                    
-1     00102456  _wcslen                         
-1     00102395  _write                          
+1     00102246  _remove                         
+1     001011fe  _rsvd_ISR                       
+1     00101428  _scalbnl                        
+1     0010183b  _setvbuf                        
+1     00102829  _showdata                       
+1     001027b8  _stop                           
+1     001021e1  _strchr                         
+1     001021f7  _strcmp                         
+1     0010223a  _strcpy                         
+1     00102223  _strlen                         
+1     0010216f  _strncpy                        
+1     001027ba  _temp5                          
+1     0010210e  _unlink                         
+1     001021b8  _wakeint_isr                    
+1     0010222b  _wcslen                         
+1     00102157  _write                          
 abs   ffffffff  binit                           
 0     003f8002  cinit                           
-1     00102477  etext                           
+1     0010224c  etext                           
 abs   ffffffff  pinit                           
 
 
@@ -851,7 +833,7 @@ page  address   name
 ----  -------   ----                            
 0     003f8002  ___cinit__                      
 0     003f8002  cinit                           
-0     003f80c7  _DSP28x_usDelay                 
+0     003f80ba  _DSP28x_usDelay                 
 1     00000400  __stack                         
 1     00000800  __STACK_END                     
 1     00000880  _DevEmuRegs                     
@@ -892,231 +874,214 @@ page  address   name
 1     00100ee5  ___TI_heap_total_available      
 1     00100f02  ___TI_heap_largest_available    
 1     00100f1f  ___TI_heap_check                
-1     00100f21  _Init_LEDS_Gpio                 
-1     00100f57  _Sellect_Bit                    
-1     00100f99  _DisData_Trans                  
-1     00100fbd  _delay1                         
-1     00100fcc  _spi_init                       
-1     00100fd9  _spi_fifo_init                  
-1     00100fe1  _spi_xmit                       
-1     00100fe8  _show86                         
-1     0010101c  _show_counter                   
-1     00101052  _demo3                          
-1     00101070  _INT13_ISR                      
-1     00101075  _INT14_ISR                      
-1     0010107a  _DATALOG_ISR                    
-1     0010107f  _RTOSINT_ISR                    
-1     00101084  _EMUINT_ISR                     
-1     00101089  _NMI_ISR                        
-1     0010108e  _ILLEGAL_ISR                    
-1     00101093  _USER1_ISR                      
-1     00101098  _USER2_ISR                      
-1     0010109d  _USER3_ISR                      
-1     001010a2  _USER4_ISR                      
-1     001010a7  _USER5_ISR                      
-1     001010ac  _USER6_ISR                      
-1     001010b1  _USER7_ISR                      
-1     001010b6  _USER8_ISR                      
-1     001010bb  _USER9_ISR                      
-1     001010c0  _USER10_ISR                     
-1     001010c5  _USER11_ISR                     
-1     001010ca  _USER12_ISR                     
-1     001010cf  _PDPINTA_ISR                    
-1     001010d4  _PDPINTB_ISR                    
-1     001010d9  _XINT1_ISR                      
-1     001010de  _XINT2_ISR                      
-1     001010e3  _ADCINT_ISR                     
-1     001010e8  _TINT0_ISR                      
-1     001010ed  _WAKEINT_ISR                    
-1     001010f2  _CMP1INT_ISR                    
-1     001010f7  _CMP2INT_ISR                    
-1     001010fc  _CMP3INT_ISR                    
-1     00101101  _T1PINT_ISR                     
-1     00101106  _T1CINT_ISR                     
-1     0010110b  _T1UFINT_ISR                    
-1     00101110  _T1OFINT_ISR                    
-1     00101115  _T2PINT_ISR                     
-1     0010111a  _T2CINT_ISR                     
-1     0010111f  _T2UFINT_ISR                    
-1     00101124  _T2OFINT_ISR                    
-1     00101129  _CAPINT1_ISR                    
-1     0010112e  _CAPINT2_ISR                    
-1     00101133  _CAPINT3_ISR                    
-1     00101138  _CMP4INT_ISR                    
-1     0010113d  _CMP5INT_ISR                    
-1     00101142  _CMP6INT_ISR                    
-1     00101147  _T3PINT_ISR                     
-1     0010114c  _T3CINT_ISR                     
-1     00101151  _T3UFINT_ISR                    
-1     00101156  _T3OFINT_ISR                    
-1     0010115b  _T4PINT_ISR                     
-1     00101160  _T4CINT_ISR                     
-1     00101165  _T4UFINT_ISR                    
-1     0010116a  _T4OFINT_ISR                    
-1     0010116f  _CAPINT4_ISR                    
-1     00101174  _CAPINT5_ISR                    
-1     00101179  _CAPINT6_ISR                    
-1     0010117e  _SPIRXINTA_ISR                  
-1     00101183  _SPITXINTA_ISR                  
-1     00101188  _MRINTA_ISR                     
-1     0010118d  _MXINTA_ISR                     
-1     00101192  _SCIRXINTA_ISR                  
-1     00101197  _SCITXINTA_ISR                  
-1     0010119c  _SCIRXINTB_ISR                  
-1     001011a1  _SCITXINTB_ISR                  
-1     001011a6  _ECAN0INTA_ISR                  
-1     001011ab  _ECAN1INTA_ISR                  
-1     001011b0  _EMPTY_ISR                      
-1     001011b5  _PIE_RESERVED                   
-1     001011ba  _rsvd_ISR                       
-1     0010125c  ___TI_cleanup                   
-1     00101279  _freopen                        
-1     00101297  _fopen                          
-1     001012dd  _demo7                          
-1     001013f8  LL$$DIV                         
-1     00101434  LL$$MOD                         
-1     0010146e  ULL$$DIV                        
-1     0010149d  ULL$$MOD                        
-1     001014ff  _demo2                          
-1     00101521  _init_key_press                 
-1     0010153e  _delay_c2                       
-1     0010155a  _Scan_Key_Horizon               
-1     0010158f  _print_bin                      
-1     001015ae  _Scan_Key_Horizon_Vertical      
-1     001015ce  _Init_Keys_Gpio                 
-1     001015fc  _ldexpl                         
-1     001015fc  _scalbnl                        
-1     001016a8  _fputs                          
-1     00101738  _puts                           
-1     0010174b  FD$$ADD                         
-1     001017e7  ___TI_writemsg                  
-1     0010183a  C$$IO$$                         
-1     0010183f  ___TI_readmsg                   
-1     0010187b  FD$$DIV                         
-1     00101906  _InitSysCtrl                    
-1     0010190e  _KickDog                        
-1     00101918  _DisableDog                     
-1     00101920  _InitPll                        
-1     00101941  _InitPeripheralClocks           
-1     0010195b  _CsmUnlock                      
-1     0010198c  FD$$MPY                         
-1     00101a0f  _setvbuf                        
-1     00101a88  _open                           
-1     00101af7  ___TI_doflush                   
-1     00101b26  _fflush                         
-1     00101b62  _InitCpuTimers                  
-1     00101b9b  _ConfigCpuTimer                 
-1     00101bcc  ___TI_wrt_ok                    
-1     00101c07  ___TI_rd_ok                     
-1     00101c33  _HOSTlseek                      
-1     00101c90  _frexpl                         
-1     00101cec  ___TI_closefile                 
-1     00101d2e  _fclose                         
-1     00101d47  FS$$MPY                         
-1     00101da1  _c_int00                        
-1     00101df5  _finddevice                     
-1     00101e10  _getdevice                      
-1     00101e45  _fputc                          
-1     00101e45  _putc                           
-1     00101e8f  _putchar                        
-1     00101e94  _HOSTrename                     
-1     00101ed3  _fseek                          
-1     00101ed3  _fseeko                         
-1     00101f10  _HOSTopen                       
-1     00101f49  _HOSTread                       
-1     00101f81  _HOSTwrite                      
-1     00101fb9  _cpu_timer0_isr                 
-1     00101ff4  _printf                         
-1     00102022  _close                          
-1     00102055  _atoi                           
-1     00102086  ___TI_ltoa                      
-1     001020b4  FD$$CMP                         
-1     001020de  L$$DIV                          
-1     001020ed  L$$MOD                          
-1     001020fb  UL$$DIV                         
-1     00102102  UL$$MOD                         
-1     00102108  C$$EXIT                         
-1     00102108  _abort                          
-1     0010210a  _exit                           
-1     00102131  FS$$TOL                         
-1     0010215a  _InitPieCtrl                    
-1     00102179  _EnableInterrupts               
-1     00102182  _HOSTclose                      
-1     001021ce  _HOSTunlink                     
-1     001021f3  _copy_in                        
-1     00102217  _copysignl                      
-1     0010223a  I$$DIV                          
-1     0010224b  I$$MOD                          
-1     0010225c  FD$$TOI                         
-1     0010227d  _InitPieVectTable               
-1     0010229d  FD$$TOL                         
-1     001022bc  LL$$CMP                         
-1     001022ce  ULL$$CMP                        
-1     001022da  I$$TOFD                         
-1     001022f7  _memcpy                         
-1     00102314  FS$$TOFD                        
-1     00102330  L$$TOFD                         
-1     0010234c  _unlink                         
-1     00102365  LL$$AND                         
-1     0010236d  LL$$OR                          
-1     00102375  LL$$XOR                         
-1     0010237d  _lseek                          
-1     00102395  _write                          
-1     001023ad  _strncpy                        
-1     001023c2  __args_main                     
-1     001023d3  _memccpy                        
-1     001023e3  _wakeint_isr                    
-1     001023f1  FD$$SUB                         
-1     001023ff  _memchr                         
-1     0010240c  _strchr                         
-1     00102417  U$$DIV                          
-1     0010241c  U$$MOD                          
-1     00102422  _strcmp                         
-1     0010242c  __register_unlock               
-1     00102430  __register_lock                 
-1     00102434  __nop                           
-1     00102435  FD$$NEG                         
-1     0010244e  _strlen                         
-1     00102456  _wcslen                         
-1     0010245e  _memset                         
-1     00102465  _strcpy                         
-1     0010246a  _main                           
-1     0010246e  _SetDBGIER                      
-1     00102471  _remove                         
-1     00102474  __system_pre_init               
-1     00102476  __system_post_cinit             
-1     00102477  ___etext__                      
-1     00102477  etext                           
-1     00102478  _parmbuf                        
-1     00102480  ___TI_tmpnams                   
-1     00102520  _CpuTimer0                      
-1     00102528  _CpuTimer1                      
-1     00102530  _CpuTimer2                      
-1     00102538  _stop                           
-1     0010253a  _temp5                          
-1     0010253c  _direction                      
-1     0010253e  __lock                          
-1     00102540  __ftable                        
-1     001025b8  ___TI_enable_exit_profile_output
-1     001025ba  ___TI_cleanup_ptr               
-1     001025bc  ___TI_dtors_ptr                 
-1     001025be  __unlock                        
-1     001025c0  __device                        
-1     00102608  __stream                        
-1     0010263e  _led_status                     
-1     0010264a  _key_press                      
-1     00102657  ___TI_ft_end                    
-1     00102658  _counter                        
-1     00102659  _light_status                   
-1     0010265a  _counter_p                      
-1     0010265c  _WakeCount                      
-1     0010265e  _LoopCount                      
-1     00102667  _B_input                        
-1     00102668  _B_output                       
-1     00102669  _DisData                        
-1     0010266a  _Loop                           
-1     0010266b  _errno                          
-1     00102680  __CIOBUF_                       
+1     00100fe2  _demo8                          
+1     001010b4  _INT13_ISR                      
+1     001010b9  _INT14_ISR                      
+1     001010be  _DATALOG_ISR                    
+1     001010c3  _RTOSINT_ISR                    
+1     001010c8  _EMUINT_ISR                     
+1     001010cd  _NMI_ISR                        
+1     001010d2  _ILLEGAL_ISR                    
+1     001010d7  _USER1_ISR                      
+1     001010dc  _USER2_ISR                      
+1     001010e1  _USER3_ISR                      
+1     001010e6  _USER4_ISR                      
+1     001010eb  _USER5_ISR                      
+1     001010f0  _USER6_ISR                      
+1     001010f5  _USER7_ISR                      
+1     001010fa  _USER8_ISR                      
+1     001010ff  _USER9_ISR                      
+1     00101104  _USER10_ISR                     
+1     00101109  _USER11_ISR                     
+1     0010110e  _USER12_ISR                     
+1     00101113  _PDPINTA_ISR                    
+1     00101118  _PDPINTB_ISR                    
+1     0010111d  _XINT1_ISR                      
+1     00101122  _XINT2_ISR                      
+1     00101127  _ADCINT_ISR                     
+1     0010112c  _TINT0_ISR                      
+1     00101131  _WAKEINT_ISR                    
+1     00101136  _CMP1INT_ISR                    
+1     0010113b  _CMP2INT_ISR                    
+1     00101140  _CMP3INT_ISR                    
+1     00101145  _T1PINT_ISR                     
+1     0010114a  _T1CINT_ISR                     
+1     0010114f  _T1UFINT_ISR                    
+1     00101154  _T1OFINT_ISR                    
+1     00101159  _T2PINT_ISR                     
+1     0010115e  _T2CINT_ISR                     
+1     00101163  _T2UFINT_ISR                    
+1     00101168  _T2OFINT_ISR                    
+1     0010116d  _CAPINT1_ISR                    
+1     00101172  _CAPINT2_ISR                    
+1     00101177  _CAPINT3_ISR                    
+1     0010117c  _CMP4INT_ISR                    
+1     00101181  _CMP5INT_ISR                    
+1     00101186  _CMP6INT_ISR                    
+1     0010118b  _T3PINT_ISR                     
+1     00101190  _T3CINT_ISR                     
+1     00101195  _T3UFINT_ISR                    
+1     0010119a  _T3OFINT_ISR                    
+1     0010119f  _T4PINT_ISR                     
+1     001011a4  _T4CINT_ISR                     
+1     001011a9  _T4UFINT_ISR                    
+1     001011ae  _T4OFINT_ISR                    
+1     001011b3  _CAPINT4_ISR                    
+1     001011b8  _CAPINT5_ISR                    
+1     001011bd  _CAPINT6_ISR                    
+1     001011c2  _SPIRXINTA_ISR                  
+1     001011c7  _SPITXINTA_ISR                  
+1     001011cc  _MRINTA_ISR                     
+1     001011d1  _MXINTA_ISR                     
+1     001011d6  _SCIRXINTA_ISR                  
+1     001011db  _SCITXINTA_ISR                  
+1     001011e0  _SCIRXINTB_ISR                  
+1     001011e5  _SCITXINTB_ISR                  
+1     001011ea  _ECAN0INTA_ISR                  
+1     001011ef  _ECAN1INTA_ISR                  
+1     001011f4  _EMPTY_ISR                      
+1     001011f9  _PIE_RESERVED                   
+1     001011fe  _rsvd_ISR                       
+1     001012a0  ___TI_cleanup                   
+1     001012bd  _freopen                        
+1     001012db  _fopen                          
+1     00101321  LL$$DIV                         
+1     0010135d  LL$$MOD                         
+1     00101397  ULL$$DIV                        
+1     001013c6  ULL$$MOD                        
+1     00101428  _ldexpl                         
+1     00101428  _scalbnl                        
+1     001014d4  _fputs                          
+1     00101564  _puts                           
+1     00101577  FD$$ADD                         
+1     00101613  ___TI_writemsg                  
+1     00101666  C$$IO$$                         
+1     0010166b  ___TI_readmsg                   
+1     001016a7  FD$$DIV                         
+1     00101732  _InitSysCtrl                    
+1     0010173a  _KickDog                        
+1     00101744  _DisableDog                     
+1     0010174c  _InitPll                        
+1     0010176d  _InitPeripheralClocks           
+1     00101787  _CsmUnlock                      
+1     001017b8  FD$$MPY                         
+1     0010183b  _setvbuf                        
+1     001018b4  _open                           
+1     00101923  ___TI_doflush                   
+1     00101952  _fflush                         
+1     0010198e  ___TI_wrt_ok                    
+1     001019c9  ___TI_rd_ok                     
+1     001019f5  _HOSTlseek                      
+1     00101a52  _frexpl                         
+1     00101aae  ___TI_closefile                 
+1     00101af0  _fclose                         
+1     00101b09  FS$$MPY                         
+1     00101b63  _c_int00                        
+1     00101bb7  _finddevice                     
+1     00101bd2  _getdevice                      
+1     00101c07  _fputc                          
+1     00101c07  _putc                           
+1     00101c51  _putchar                        
+1     00101c56  _HOSTrename                     
+1     00101c95  _fseek                          
+1     00101c95  _fseeko                         
+1     00101cd2  _HOSTopen                       
+1     00101d0b  _HOSTread                       
+1     00101d43  _HOSTwrite                      
+1     00101d7b  _cpu_timer0_isr                 
+1     00101db6  _printf                         
+1     00101de4  _close                          
+1     00101e17  _atoi                           
+1     00101e48  ___TI_ltoa                      
+1     00101e76  FD$$CMP                         
+1     00101ea0  L$$DIV                          
+1     00101eaf  L$$MOD                          
+1     00101ebd  UL$$DIV                         
+1     00101ec4  UL$$MOD                         
+1     00101eca  C$$EXIT                         
+1     00101eca  _abort                          
+1     00101ecc  _exit                           
+1     00101ef3  FS$$TOL                         
+1     00101f1c  _InitPieCtrl                    
+1     00101f3b  _EnableInterrupts               
+1     00101f44  _HOSTclose                      
+1     00101f90  _HOSTunlink                     
+1     00101fb5  _copy_in                        
+1     00101fd9  _copysignl                      
+1     00101ffc  I$$DIV                          
+1     0010200d  I$$MOD                          
+1     0010201e  FD$$TOI                         
+1     0010203f  _InitPieVectTable               
+1     0010205f  FD$$TOL                         
+1     0010207e  LL$$CMP                         
+1     00102090  ULL$$CMP                        
+1     0010209c  I$$TOFD                         
+1     001020b9  _memcpy                         
+1     001020d6  FS$$TOFD                        
+1     001020f2  L$$TOFD                         
+1     0010210e  _unlink                         
+1     00102127  LL$$AND                         
+1     0010212f  LL$$OR                          
+1     00102137  LL$$XOR                         
+1     0010213f  _lseek                          
+1     00102157  _write                          
+1     0010216f  _strncpy                        
+1     00102184  _InitAdc                        
+1     00102197  __args_main                     
+1     001021a8  _memccpy                        
+1     001021b8  _wakeint_isr                    
+1     001021c6  FD$$SUB                         
+1     001021d4  _memchr                         
+1     001021e1  _strchr                         
+1     001021ec  U$$DIV                          
+1     001021f1  U$$MOD                          
+1     001021f7  _strcmp                         
+1     00102201  __register_unlock               
+1     00102205  __register_lock                 
+1     00102209  __nop                           
+1     0010220a  FD$$NEG                         
+1     00102223  _strlen                         
+1     0010222b  _wcslen                         
+1     00102233  _memset                         
+1     0010223a  _strcpy                         
+1     0010223f  _main                           
+1     00102243  _SetDBGIER                      
+1     00102246  _remove                         
+1     00102249  __system_pre_init               
+1     0010224b  __system_post_cinit             
+1     0010224c  ___etext__                      
+1     0010224c  __stream                        
+1     0010224c  etext                           
+1     0010227e  __lock                          
+1     00102280  _SampleTable                    
+1     00102680  ___TI_tmpnams                   
+1     00102720  _CpuTimer0                      
+1     00102728  _CpuTimer1                      
+1     00102730  _CpuTimer2                      
+1     00102738  _parmbuf                        
+1     00102740  __ftable                        
+1     001027b8  _stop                           
+1     001027ba  _temp5                          
+1     001027bc  _direction                      
+1     001027be  __unlock                        
+1     001027c0  __device                        
+1     00102808  ___TI_enable_exit_profile_output
+1     0010280a  ___TI_cleanup_ptr               
+1     0010280c  ___TI_dtors_ptr                 
+1     00102812  _counter                        
+1     00102813  _light_status                   
+1     00102814  _counter_p                      
+1     00102816  _WakeCount                      
+1     00102818  _LoopCount                      
+1     00102821  ___TI_ft_end                    
+1     00102822  _led_status                     
+1     00102824  _B_input                        
+1     00102825  _B_output                       
+1     00102826  _DisData                        
+1     00102827  _Loop                           
+1     00102829  _showdata                       
+1     0010282a  _errno                          
+1     00102840  __CIOBUF_                       
 1     003f7ff8  _CsmPwl                         
 1     003f9000  __sys_memory                    
 1     003f9400  __ctypes_                       
@@ -1132,4 +1097,4 @@ abs   ffffffff  ___pinit__
 abs   ffffffff  binit                           
 abs   ffffffff  pinit                           
 
-[282 symbols]
+[265 symbols]

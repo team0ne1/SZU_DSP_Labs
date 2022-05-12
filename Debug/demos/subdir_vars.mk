@@ -12,7 +12,8 @@ C_SRCS += \
 ../demos/demo4.c \
 ../demos/demo5.c \
 ../demos/demo6.c \
-../demos/demo7.c 
+../demos/demo7.c \
+../demos/demo8.c 
 
 C_DEPS += \
 ./demos/demo1.d \
@@ -21,7 +22,8 @@ C_DEPS += \
 ./demos/demo4.d \
 ./demos/demo5.d \
 ./demos/demo6.d \
-./demos/demo7.d 
+./demos/demo7.d \
+./demos/demo8.d 
 
 OBJS += \
 ./demos/demo1.obj \
@@ -30,7 +32,8 @@ OBJS += \
 ./demos/demo4.obj \
 ./demos/demo5.obj \
 ./demos/demo6.obj \
-./demos/demo7.obj 
+./demos/demo7.obj \
+./demos/demo8.obj 
 
 OBJS__QUOTED += \
 "demos\demo1.obj" \
@@ -39,7 +42,8 @@ OBJS__QUOTED += \
 "demos\demo4.obj" \
 "demos\demo5.obj" \
 "demos\demo6.obj" \
-"demos\demo7.obj" 
+"demos\demo7.obj" \
+"demos\demo8.obj" 
 
 C_DEPS__QUOTED += \
 "demos\demo1.d" \
@@ -48,7 +52,8 @@ C_DEPS__QUOTED += \
 "demos\demo4.d" \
 "demos\demo5.d" \
 "demos\demo6.d" \
-"demos\demo7.d" 
+"demos\demo7.d" \
+"demos\demo8.d" 
 
 C_SRCS__QUOTED += \
 "../demos/demo1.c" \
@@ -57,6 +62,7 @@ C_SRCS__QUOTED += \
 "../demos/demo4.c" \
 "../demos/demo5.c" \
 "../demos/demo6.c" \
-"../demos/demo7.c" 
+"../demos/demo7.c" \
+"../demos/demo8.c" 
 
 
