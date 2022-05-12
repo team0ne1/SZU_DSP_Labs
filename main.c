@@ -1,14 +1,16 @@
 #include <stdio.h>
 
-#define DEMO1 1
-#define DEMO2 2
-#define DEMO3 3
-#define DEMO4 4
-#define DEMO5 5
-#define DEMO6 6
-#define DEMO7 7
+#define DEMO1 1         //LED和跑马灯 按键停止与继续跑马灯
+#define DEMO2 2         //矩阵键盘
+#define DEMO3 3         //串口与SPI实验 数码管
+#define DEMO4 4         //中断管理和CPU计数
+#define DEMO5 5         //LED和跑马灯 矩阵键盘选择功能
+#define DEMO6 6         //看门狗案例程序
+#define DEMO7 7         //作弊秒表
+#define DEMO8 8         //模拟信号AD采集
 
-#define RUN_DEMO  DEMO7
+#define RUN_DEMO  DEMO8 //选择编译的实验代码
+
 /**
  * main.c
  */
@@ -28,6 +30,8 @@ int main(void)
     demo6();
 #elif  RUN_DEMO == DEMO7
     demo7();
+#elif  RUN_DEMO == DEMO8
+    demo8();
 
 #endif
 
