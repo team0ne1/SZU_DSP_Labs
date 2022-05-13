@@ -33,14 +33,8 @@ static unsigned char DisData_Bit[4] = {0};                                      
 static Uint16 DisData = 1234;                                                      //显示的数字
 static Uint16 Loop = 0;
 
-//static Uint16 counter_int = 0;
-//
-//static Uint16 LedBuffer[2];
-//
-//static Uint32 Sum=0;
+
 static volatile  Uint16 RES=0;
-static volatile  int isBusy = 0;
-//static Uint32 showdata;
 
 // ADC启动参数
 #define ADC_MODCLK 0x3   // HSPCLK = SYSCLKOUT/2*ADC_MODCLK2 = 150/(2*3)     = 25MHz
@@ -51,8 +45,8 @@ static volatile  int isBusy = 0;
 #define BUF_SIZE   1024  // 采样缓冲器尺寸
 
 // 该例程使用的全局变量
-static Uint16 SampleTable[BUF_SIZE];
-                                                        //循环扫描变量
+//static Uint16 SampleTable[BUF_SIZE];
+
 
 /*****************************************************************************************************/
 
@@ -183,7 +177,7 @@ static void delay_loop8()
 
 void demo9(void)
 {
-   Uint16 i;
+//   Uint16 i;
 
 //   Uint32 Vin;
 
@@ -254,7 +248,7 @@ void demo9(void)
    AdcRegs.ADCTRL2.bit.INT_MOD_SEQ1 = 1;
 
 
-// Enable CPU INT1 which is connected to CPU-Timer 0:
+// Enable CPU INT1
   IER |= M_INT1;
 
 // Enable TINT0 in the PIE: Group 1 interrupt 7
@@ -278,43 +272,11 @@ void demo9(void)
       delay_loop8();
 
    // 软件启动SEQ1
-//   AdcRegs.ADCTRL2.all = 0x2000;
    AdcRegs.ADCTRL2.bit.SOC_SEQ1 = 1;
 
-//   counter_int = 0;
-   // 取ADC数据并写入采样数据表
+
    while(1)
    {
-       if(!isBusy){
-           showVin((AdcRegs.ADCRESULT0>>4));
-       }
-//       showVin((AdcRegs.ADCRESULT0>>4));
-//       showVin((RES>>4));
-//     for (i=0; i<AVG; i++)
-//     {
-//        while (AdcRegs.ADCST.bit.INT_SEQ1== 0) {} // 等待中断
-//        AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1;
-//        SampleTable[i] =((AdcRegs.ADCRESULT0>>4));
-//     }
-//     for (i=0;i<AVG;i++)
-//     {
-//      Sum+=SampleTable[i];
-//      Sum=Sum/2;
-//     }
-//     //输入电压和AD值之间的关系Vin/Sum=3/4096；
-//     Vin=Sum*3*10000/4096;      //将输入电压放大100倍，以便于第2位有效小数的四舍五入计算；
-//     if(Vin%10>=5)//最后一位整数>=5时，要五入；
-//     showdata=Vin/10+1;
-//     else
-//     showdata=Vin/10;//要四舍；
-//     printf("showdata:%d\n", showdata);
-//     if(Vin>1.5){
-//         printf("Vin > 1.5\n");
-//     }
-//       AdcRegs.ADCTRL2.bit.SOC_SEQ1 = 0;
-//       showVin();
-
-
 
    }
 }
@@ -348,7 +310,7 @@ static void showVin(Uint32 Res){
 static void showLEDs(int data){
     int i;
     DisData_Trans(data);
-    for(i=0;i<2;i++)
+    for(i=0;i<16;i++)
     {
        for(Loop=0;Loop<4;Loop++)                               //分别显示四位
        {
@@ -359,33 +321,23 @@ static void showLEDs(int data){
            spi_xmit(msg[DisData_Bit[Loop]]);                   //串行输出要显示的数字
            delay1(1000);                                       //延时配合人眼反应时间
        }
-       delay1(1000);
+       delay1(250);
     }
 }
 
 
 __interrupt void adc_int(void){
     printf("adc_int\n");
-//    if(counter_int<AVG){
 
-//        AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1;
-//        Uint32 RES;
-        RES = AdcRegs.ADCRESULT0;
-//        printf("RES>>4:%d\n",RES>>4);
-//        showVin((AdcRegs.ADCRESULT0>>4));
-        printf("(AdcRegs.ADCRESULT0>>4):%d\n",(AdcRegs.ADCRESULT0>>4));
-//        SampleTable[counter_int] =((AdcRegs.ADCRESULT0>>4));
 
-//        printf("SampleTable[counter_int]:%d\n",SampleTable[counter_int]);
-//        counter_int++;
-//    }else{
-//        counter_int = 0;
-//    }
+//    RES = AdcRegs.ADCRESULT0;
+    showVin((AdcRegs.ADCRESULT0>>4));
+    printf("(AdcRegs.ADCRESULT0>>4):%d\n",(AdcRegs.ADCRESULT0>>4));
 
-//    showVin();
     AdcRegs.ADCTRL2.bit.RST_SEQ1 = 1;         // Reset SEQ1
     AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1;       // Clear INT SEQ1 bit
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;   // Acknowledge interrupt to PIE
+
 
 }
 

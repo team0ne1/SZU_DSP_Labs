@@ -15,6 +15,10 @@ Note:
 .../YH_DSP2812_CODE/DSP281x_common/include 
 .../YH_DSP2812_CODE/DSP281x_headers/include
 
+运行:
+main.c文件中
+修改 #define RUN_DEMO  DEMOx 的x为数字
+
 环境:
 Code Composer Studio 
  Version: 11.2.0.00007 
