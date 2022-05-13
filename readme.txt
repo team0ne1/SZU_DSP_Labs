@@ -9,9 +9,19 @@ demo8:(7) !模拟信号AD采集
 
 
 Note: 
-不足：本工程文件为GB2312编码，如果出现中文乱码请在编辑器中切换编码
+1/ 不足：本工程文件为GB2312编码，如果出现中文乱码请在编辑器中切换编码
+2/ 根据自己电脑上的这个两个文件位置，重新链接文件:
+.../YH_DSP2812_CODE/DSP281x_common/include 
+.../YH_DSP2812_CODE/DSP281x_headers/include
 
-这周和下周安排：做完所有ppt中的实验，包括：
+环境:
+Code Composer Studio 
+ Version: 11.2.0.00007 
+
+OS: Windows 10, v.10.0, x86_64 / win32
+Java version: 11.0.13
+
+
 (1) 串口与SPI实验 
 (2) 中断管理和CPU计数
 (3) LED和跑马灯

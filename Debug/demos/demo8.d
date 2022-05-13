@@ -1,7 +1,7 @@
 # FIXED
 
 demos/demo8.obj: ../demos/demo8.c
-demos/demo8.obj: ../demos/demo5.h
+demos/demo8.obj: ../demos/demo8.h
 demos/demo8.obj: H:/Code/dsp/YH_DSP2812_CODE/DSP281x_headers/include/DSP281x_Device.h
 demos/demo8.obj: H:/Code/dsp/YH_DSP2812_CODE/DSP281x_headers/include/DSP281x_SysCtrl.h
 demos/demo8.obj: H:/Code/dsp/YH_DSP2812_CODE/DSP281x_headers/include/DSP281x_DevEmu.h
@@ -32,12 +32,17 @@ demos/demo8.obj: H:/Code/dsp/YH_DSP2812_CODE/DSP281x_common/include/DSP281x_Exam
 demos/demo8.obj: H:/Code/dsp/YH_DSP2812_CODE/DSP281x_common/include/DSP281x_GlobalPrototypes.h
 demos/demo8.obj: H:/Code/dsp/YH_DSP2812_CODE/DSP281x_common/include/DSP281x_SWPrioritizedIsrLevels.h
 demos/demo8.obj: H:/Code/dsp/YH_DSP2812_CODE/DSP281x_common/include/DSP281x_DefaultISR.h
-demos/demo8.obj: ../demos/demo7.h
-demos/demo8.obj: ../demos/demo8.h
+demos/demo8.obj: E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/stdio.h
+demos/demo8.obj: E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/_ti_config.h
+demos/demo8.obj: E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/linkage.h
+demos/demo8.obj: E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/stdarg.h
+demos/demo8.obj: E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/sys/_types.h
+demos/demo8.obj: E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/sys/cdefs.h
+demos/demo8.obj: E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/machine/_types.h
 
 ../demos/demo8.c:
 
-../demos/demo5.h:
+../demos/demo8.h:
 
 H:/Code/dsp/YH_DSP2812_CODE/DSP281x_headers/include/DSP281x_Device.h:
 
@@ -99,7 +104,17 @@ H:/Code/dsp/YH_DSP2812_CODE/DSP281x_common/include/DSP281x_SWPrioritizedIsrLevel
 
 H:/Code/dsp/YH_DSP2812_CODE/DSP281x_common/include/DSP281x_DefaultISR.h:
 
-../demos/demo7.h:
+E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/stdio.h:
 
-../demos/demo8.h:
+E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/_ti_config.h:
+
+E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/linkage.h:
+
+E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/stdarg.h:
+
+E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/sys/_types.h:
+
+E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/sys/cdefs.h:
+
+E:/ccs11.2/installDir/ccs/tools/compiler/ti-cgt-c2000_21.6.0.LTS/include/machine/_types.h:
 

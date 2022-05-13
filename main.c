@@ -8,8 +8,9 @@
 #define DEMO6 6         //看门狗案例程序
 #define DEMO7 7         //作弊秒表
 #define DEMO8 8         //模拟信号AD采集
+#define DEMO8 9         //模拟信号AD采集 中断
 
-#define RUN_DEMO  DEMO8 //选择编译的实验代码
+#define RUN_DEMO  DEMO9 //选择编译的实验代码
 
 /**
  * main.c
@@ -32,7 +33,8 @@ int main(void)
     demo7();
 #elif  RUN_DEMO == DEMO8
     demo8();
-
+#elif  RUN_DEMO == DEMO9
+    demo9();
 #endif
 
 	return 0;
