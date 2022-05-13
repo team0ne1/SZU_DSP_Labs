@@ -236,6 +236,7 @@ void demo8(void)
    AdcRegs.ADCTRL3.bit.ADCCLKPS = ADC_CKPS;  // ADC 模块时钟 = HSPCLK/1      = 25MHz/(1)     = 25MHz
    AdcRegs.ADCTRL1.bit.SEQ_CASC = 1;        // 1  级联模式
    AdcRegs.ADCCHSELSEQ1.bit.CONV00 = 0x0;   //ADC通道选择ADCIN0
+   AdcRegs.ADCCHSELSEQ2.bit.CONV06 = 0x0;   //ADC通道选择ADCIN0
    AdcRegs.ADCTRL1.bit.CONT_RUN = 1;       // 设置为连续运行
 
 // Step 5.用户指定代码，使能中断:
