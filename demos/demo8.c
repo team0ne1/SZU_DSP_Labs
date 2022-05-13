@@ -43,6 +43,7 @@ static Uint16 showdata;
 
 // 该例程使用的全局变量
 static Uint16 SampleTable[BUF_SIZE];
+static Uint16 SampleTable1[BUF_SIZE];
                                                         //循环扫描变量
 
 /*****************************************************************************************************/
@@ -266,12 +267,25 @@ void demo8(void)
       Sum+=SampleTable[i];
       Sum=Sum/2;
      }
+//     for (i=0; i<AVG; i++)
+//     {
+//        while (AdcRegs.ADCST.bit.INT_SEQ2== 0) {} // 等待中断
+//        AdcRegs.ADCST.bit.INT_SEQ2_CLR = 1;
+//        SampleTable1[i] =((AdcRegs.ADCRESULT6>>4));
+//     }
+//     for (i=0;i<AVG;i++)
+//     {
+//      Sum+=SampleTable1[i];
+//      Sum=Sum/2;
+//     }
      //输入电压和AD值之间的关系Vin/Sum=3/4096；
      Vin=Sum*3*10000/4096;      //将输入电压放大100倍，以便于第2位有效小数的四舍五入计算；
      if(Vin%10>=5)//最后一位整数>=5时，要五入；
-     showdata=Vin/10+1;
+         showdata=Vin/10+1;
      else
-     showdata=Vin/10;//要四舍；
+         showdata=Vin/10;//要四舍；
+
+     printf("showdata: %d\n", showdata);
 
      if(showdata>1500){
          printf("V > 1.5\n");

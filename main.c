@@ -10,7 +10,7 @@
 #define DEMO8 8         //模拟信号AD采集
 #define DEMO8 9         //模拟信号AD采集 中断
 
-#define RUN_DEMO  DEMO9 //选择编译的实验代码
+#define RUN_DEMO  DEMO8 //选择编译的实验代码
 
 /**
  * main.c
