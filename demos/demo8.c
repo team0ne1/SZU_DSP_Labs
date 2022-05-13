@@ -168,7 +168,7 @@ static void spi_xmit(Uint16 a)
 static void delay_loop8()
 {
     long      i;
-    for (i = 0; i < 4500000; i++) {}
+    for (i = 0; i < 45000; i++) {}
 }
 
 
@@ -273,8 +273,8 @@ void demo8(void)
      else
      showdata=Vin/10;//ÒªËÄÉá£»
 
-     if(Vin>1.5){
-         printf("Vin > 1.5\n");
+     if(showdata>1500){
+         printf("V > 1.5\n");
      }
 
      for(i=0;i<100;i++)
