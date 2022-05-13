@@ -24,6 +24,7 @@ static void spi_init(void);
 void showVin(Uint32 Res);
 static void showLEDs(int data);
 __interrupt void adc_int(void);
+static __interrupt void cpu_timer0_isr(void);
 //static void delay(Uint32 t);
 /*****************************************************************************************************/
 
@@ -230,6 +231,12 @@ void demo9(void)
 // ISR functions found within this file.
   EALLOW;  // This is needed to write to EALLOW protected registers
   PieVectTable.ADCINT = &adc_int;
+  PieVectTable.TINT0 = &cpu_timer0_isr;
+
+
+  InitCpuTimers();
+  ConfigCpuTimer(&CpuTimer0, 150, 200000);
+  StartCpuTimer0();
 
 // 步骤 4.初始化片内外设:
    InitAdc();  // For this example, init the ADC
@@ -253,7 +260,7 @@ void demo9(void)
 
 // Enable TINT0 in the PIE: Group 1 interrupt 7
   PieCtrlRegs.PIEIER1.bit.INTx6 = 1;
-//  PieCtrlRegs.PIEIER2.bit.INTx7 = 1;
+  PieCtrlRegs.PIEIER1.bit.INTx7 = 1;
 
 // Enable global Interrupts and higher priority real-time debug events:
   EINT;   // Enable Global interrupt INTM
@@ -275,8 +282,7 @@ void demo9(void)
    AdcRegs.ADCTRL2.bit.SOC_SEQ1 = 1;
 
 
-   while(1)
-   {
+   while(1){
 
    }
 }
@@ -331,7 +337,7 @@ __interrupt void adc_int(void){
 
 
 //    RES = AdcRegs.ADCRESULT0;
-    showVin((AdcRegs.ADCRESULT0>>4));
+//    showVin((AdcRegs.ADCRESULT0>>4));
     printf("(AdcRegs.ADCRESULT0>>4):%d\n",(AdcRegs.ADCRESULT0>>4));
 
     AdcRegs.ADCTRL2.bit.RST_SEQ1 = 1;         // Reset SEQ1
@@ -339,6 +345,14 @@ __interrupt void adc_int(void){
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;   // Acknowledge interrupt to PIE
 
 
+}
+
+static __interrupt void cpu_timer0_isr(void)
+{
+
+   showVin((AdcRegs.ADCRESULT0>>4));
+   // Acknowledge this interrupt to receive more interrupts from group 1
+   PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
 }
 
 //===========================================================================
