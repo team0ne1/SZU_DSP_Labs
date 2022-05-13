@@ -18,6 +18,7 @@
 static void DisData_Trans(Uint16 data);
 static void Sellect_Bit(Uint16 i);
 static void Init_LEDS_Gpio(void);
+static void Init_Light_Gpio(void);
 static void spi_xmit(Uint16 a);
 static void spi_fifo_init(void);
 static void spi_init(void);
@@ -50,6 +51,19 @@ static volatile  Uint16 RES=0;
 
 
 /*****************************************************************************************************/
+
+/****************************************************************************************************/
+static void Init_Light_Gpio(void){
+
+    EALLOW;
+    GpioMuxRegs.GPAMUX.all=0x0000;
+    GpioMuxRegs.GPADIR.all=0xFFFF;
+    GpioMuxRegs.GPAQUAL.all=0x0000;
+    EDIS;
+
+    GpioDataRegs.GPADAT.all    =0x0000;//GPIOA0-A7输出清0，使LED1灯灭
+}
+
 
 /******************************数码管位选 IO 接口初始化*******************************************/
 
@@ -207,6 +221,7 @@ void demo9(void)
    EDIS;
 
    Init_LEDS_Gpio();
+   Init_Light_Gpio();
 
 
 // 步骤 3. 清除所有中断,初始化中断向量表:
@@ -233,7 +248,6 @@ void demo9(void)
   PieVectTable.ADCINT = &adc_int;
   PieVectTable.TINT0 = &cpu_timer0_isr;
 
-
   InitCpuTimers();
   ConfigCpuTimer(&CpuTimer0, 150, 200000);
   StartCpuTimer0();
@@ -248,7 +262,8 @@ void demo9(void)
    AdcRegs.ADCTRL1.bit.ACQ_PS = ADC_SHCLK;
    AdcRegs.ADCTRL3.bit.ADCCLKPS = ADC_CKPS;  // ADC 模块时钟 = HSPCLK/1      = 25MHz/(1)     = 25MHz
    AdcRegs.ADCTRL1.bit.SEQ_CASC = 1;        // 1  级联模式
-   AdcRegs.ADCCHSELSEQ1.bit.CONV00 = 0x0;   //ADC通道选择ADCIN0
+   AdcRegs.ADCCHSELSEQ1.bit.CONV00 = 0x0;   //ADC通道选择ADCIN0 SEQ1
+   AdcRegs.ADCCHSELSEQ2.bit.CONV06 = 0x0;   //ADC通道选择ADCIN6
    AdcRegs.ADCTRL1.bit.CONT_RUN = 1;       // 设置为连续运行
 
    AdcRegs.ADCTRL2.bit.INT_ENA_SEQ1 = 1;
@@ -306,6 +321,17 @@ static void showVin(Uint32 Res){
         showdata=Vin/10+1;
     else
         showdata=Vin/10;//要四舍；
+
+    if(showdata > 1500){
+        printf("LightA8:up\n");
+//        GpioDataRegs.GPACLEAR.all = 0xFFFF;
+        GpioDataRegs.GPASET.bit.GPIOA0 = 1;
+    }
+    else{
+        printf("LightA8:down\n");
+//        GpioDataRegs.GPACLEAR.all = 0xFFFF;
+        GpioDataRegs.GPACLEAR.bit.GPIOA0 = 1;
+    }
 
     printf("showdata:%d\n", showdata);
     showLEDs(showdata);
