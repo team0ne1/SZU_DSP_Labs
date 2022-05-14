@@ -34,6 +34,7 @@ main.c文件中
 根据自己电脑上的这个两个文件位置，重新链接文件:
 
 `.../YH_DSP2812_CODE/DSP281x_common/include `
+
 `.../YH_DSP2812_CODE/DSP281x_headers/include`
 
 
