@@ -31,12 +31,6 @@ main.c文件中
 **Note:** 
 不足：本工程文件为GB2312编码，如果出现中文乱码请在编辑器中切换编码
 
-根据自己电脑上的这个两个文件位置，重新链接文件:
-
-`.../YH_DSP2812_CODE/DSP281x_common/include `
-
-`.../YH_DSP2812_CODE/DSP281x_headers/include`
-
 
 
 ## 环境
