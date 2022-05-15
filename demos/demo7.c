@@ -4,10 +4,11 @@
 static unsigned int msg[10]={0xC0,0xf9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};  //段码：0~9
 static unsigned int DisData_Bit[4] = {0};                                         //存放拆分后的四位数字
 static unsigned int time_T;
-static unsigned int time_show = 0;
+static Uint16 time_show = 0;
 static unsigned int time_counter = 0;
 
 static __interrupt void cpu_timer0_isr(void);
+static void DisData_Trans(Uint16 data);
 static void show_time(Uint16 second);
 
 
@@ -94,10 +95,11 @@ void demo7(void)
 // Step 6. IDLE loop. Just sit and loop forever (optional):
   while(1){
       show_time(time_show);
+      printf("time:%ds\n",time_show);
       struct Key_Pos keypress;
       keypress = Scan_Key_Horizon_Vertical();
 
-      printf("keypress:%d\n", keypress.val);
+//      printf("keypress:%d\n", keypress.val);
       if(keypress.val == 3 && time_T<15) //when time_T = 15, T = 15*200ms=3s
       {
           time_T++;
@@ -105,8 +107,8 @@ void demo7(void)
       }
       if(keypress.val == 6) //when time_T = 1, T = 1*200ms=0.2s
       {
-        time_T = 5;
-        printf("time_T:%d\n", time_T);
+          time_T = 5;
+          printf("time_T:%d\n", time_T);
       }
       if(keypress.val == 9 && time_T>1) //when time_T = 1, T = 1*200ms=0.2s
       {
@@ -117,16 +119,23 @@ void demo7(void)
   };
 
 }
+static void DisData_Trans(Uint16 data)
+{
+    DisData_Bit[3] = data / 1000;                       //千位数
+    DisData_Bit[2] = data % 1000 / 100 ;                //百位数
+    DisData_Bit[1] = data % 100 / 10;                   //十位数
+    DisData_Bit[0] = data % 10;                         //个位数
+}
 
 
-void show_time(Uint16 second)
+static void show_time(Uint16 second)
 {
 //    assert(second >= 0);
     if(second > 1000) second = 1000;
     DisData_Trans(second);
 
     int Loop;
-    for(Loop = 0;Loop < 80;Loop++){
+    for(Loop = 0;Loop < 4;Loop++){
         Sellect_Bit(Loop%4);                                  //选择要扫描的数码管位
         spi_xmit(msg[DisData_Bit[Loop%4]]);                   //串行输出要显示的数字
         if(Loop < 4) printf("%d", DisData_Bit[3-Loop%4]);
