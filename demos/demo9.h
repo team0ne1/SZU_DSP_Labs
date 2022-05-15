@@ -11,3 +11,4 @@
 #define  SET_BIT1   GpioDataRegs.GPBSET.bit.GPIOB13  = 1        //与外设板 8_LEDS 端子的 IOB13 对应
 #define  RST_BIT1   GpioDataRegs.GPBCLEAR.bit.GPIOB13 = 1       //与外设板 8_LEDS 端子的 IOB13 对应
 /*****************************************************************************************************/
+void demo9(void);
