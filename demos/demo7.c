@@ -1,7 +1,5 @@
 #include "assert.h"
-#include "demo2.h"
-#include "demo3.h"
-
+#include "demo7.h"
 
 static unsigned int msg[10]={0xC0,0xf9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};  //段码：0~9
 static unsigned int DisData_Bit[4] = {0};                                         //存放拆分后的四位数字
@@ -11,8 +9,7 @@ static unsigned int time_counter = 0;
 
 static __interrupt void cpu_timer0_isr(void);
 static void show_time(Uint16 second);
-static void DisData_Trans(Uint16 data);
-static void Sellect_Bit(Uint16 i);
+
 
 void demo7(void)
 {
@@ -121,44 +118,6 @@ void demo7(void)
 
 }
 
-static void DisData_Trans(Uint16 data)
-{
-    DisData_Bit[3] = data / 1000;                       //千位数
-    DisData_Bit[2] = data % 1000 / 100 ;                //百位数
-    DisData_Bit[1] = data % 100 / 10;                   //十位数
-    DisData_Bit[0] = data % 10;                         //个位数
-}
-
-static void Sellect_Bit(Uint16 i)
-{
-    switch(i)
-    {
-        case 0:
-            RST_BIT4;
-            SET_BIT1;
-            break;
-
-        case 1:
-            RST_BIT1;
-            SET_BIT2;
-            break;
-
-        case 2:
-
-            RST_BIT2;
-            SET_BIT3;                                   //选通数码管第三位
-            break;
-
-        case 3:
-
-            RST_BIT3;
-            SET_BIT4;
-            break;
-
-        default:
-            break;
-    }
-}
 
 void show_time(Uint16 second)
 {
@@ -193,3 +152,9 @@ static __interrupt void cpu_timer0_isr(void)
    // Acknowledge this interrupt to receive more interrupts from group 1
    PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
 }
+
+
+
+
+
+

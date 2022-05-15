@@ -90,7 +90,7 @@ void demo1(void)
 
 } 	
 
-void delay_c1(int t)
+static void delay_c1(int t)
 {
     Uint32      i;
 	Uint32      j;
@@ -100,7 +100,7 @@ void delay_c1(int t)
 
 
 
-void LED_Stop(void){
+static void LED_Stop(void){
     led_status = ~led_status;
 }
 
@@ -110,7 +110,7 @@ void LED_Stop(void){
 /*返回值:void				    			*/
 /*函数描述:扫描键值             	    	*/
 /*------------------------------------------*/
-void Scan_Key(void)      
+static void Scan_Key(void)
 {
 
     while(S1==0){
@@ -126,7 +126,7 @@ void Scan_Key(void)
 }
 
 
-void Gpio_select1(void)
+static void Gpio_select1(void)
 {
 
     Uint16 var1;

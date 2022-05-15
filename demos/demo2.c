@@ -31,11 +31,8 @@
 
 
 /***************全局变量定义****************/
-Uint16 B_input;
-Uint16 B_output;
-
-
-int key_press[3][3];
+static Uint16 B_input;
+static Uint16 B_output;
 
 
 
@@ -105,15 +102,6 @@ void demo2(void)
 /*函数描述: 初始化按键值                         */
 /*------------------------------------------*/
 
-void init_key_press(void){
-    int m, n;
-    for(m=0;m<3;m++){
-        for(n=0;n<3;n++){
-            key_press[m][n] = 0;
-        }
-    }
-    //printf("%d %d", m, n);
-}
 
 /*------------------------------------------*/
 /*形式参数: int                         */
@@ -121,7 +109,7 @@ void init_key_press(void){
 /*函数描述: 延时函数                         */
 /*------------------------------------------*/
 
-void delay_c2(int t)
+static void delay_c2(int t)
 {
     Uint32      i;
     Uint32      j;
@@ -135,7 +123,7 @@ void delay_c2(int t)
 /*返回值:void                              */
 /*函数描述:扫描键值                         */
 /*------------------------------------------*/
-int Scan_Key_Horizon(int y)
+static int Scan_Key_Horizon(int y)
 {
     int n = 0;
     B_input = 0x04;

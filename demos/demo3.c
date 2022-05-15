@@ -155,7 +155,7 @@ void spi_xmit(Uint16 a)
 }
 /*****************************************************************************************************/
 
-void show86(void){
+static void show86(void){
     DisData = 8006;
     int counter = 0;
     for(;;)
@@ -174,7 +174,7 @@ void show86(void){
     }
 }
 
-void show_counter(void){
+static void show_counter(void){
     DisData = 0;
     while(1){
         if(DisData == 100) DisData = 0;

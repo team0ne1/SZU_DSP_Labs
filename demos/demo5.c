@@ -24,10 +24,10 @@
 #include "demo5.h"
 #include <stdio.h>
 /***************全局变量定义****************/
-Uint32 temp5;
-Uint32 direction;
-int stop = 0;
-int light_map[8] = {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
+static Uint32 temp5;
+static Uint32 direction;
+static int stop = 0;
+static int light_map[8] = {0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
 
 void demo5(void)
 {
@@ -130,7 +130,7 @@ void demo5(void)
 
 }
 
-void delay_loop()
+static void delay_loop()
 {
     Uint32      i;
     Uint32      j;
@@ -143,7 +143,7 @@ void delay_loop()
 /*返回值:void                              */
 /*函数描述:扫描键值                         */
 /*------------------------------------------*/
-void Scan_Key5(void)
+static void Scan_Key5(void)
 {
     struct Key_Pos pos;
 
@@ -179,7 +179,7 @@ void Scan_Key5(void)
 }
 
 
-void Gpio_select5(void)
+static void Gpio_select5(void)
 {
 
     Uint16 var1;

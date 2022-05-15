@@ -5,9 +5,9 @@
 
 #define _DEMO5_H_
 /****************函数声明*******************/
-void Gpio_select5(void); //gpio端口配置子程序
-void delay_loop(void);
-void Scan_Key5(void);
+static void Gpio_select5(void); //gpio端口配置子程序
+static void delay_loop(void);
+static void Scan_Key5(void);
 void demo5(void);
 #endif
 

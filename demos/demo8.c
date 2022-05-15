@@ -227,7 +227,7 @@ static void spi_xmit(Uint16 a)
 static void delay_loop()
 {
     long      i;
-    for (i = 0; i < 4500000; i++) {}
+    for (i = 0; i < 45000; i++) {}
 }
 
 
@@ -378,7 +378,7 @@ void demo8(void)
                                 spi_xmit(msg[DisData_Bit[Loop]]+0x80);
                             else
                             spi_xmit(msg[DisData_Bit[Loop]]);                   //串行输出要显示的数字
-                            delay(25000);                                       //延时配合人眼反应时间
+                            delay(1500);                                       //延时配合人眼反应时间
                         }
 
 

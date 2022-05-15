@@ -109,7 +109,7 @@ void demo4(void)
 }
 
 
-__interrupt void cpu_timer0_isr(void)
+static __interrupt void cpu_timer0_isr(void)
 {
 
     GpioDataRegs.GPACLEAR.all = 0x00FF;
@@ -126,7 +126,7 @@ __interrupt void cpu_timer0_isr(void)
 }
 
 
-void Gpio_select4(void)
+static void Gpio_select4(void)
 {
 
     Uint16 var1;
