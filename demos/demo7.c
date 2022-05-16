@@ -6,10 +6,15 @@ static unsigned int DisData_Bit[4] = {0};                                       
 static unsigned int time_T;
 static Uint16 time_show = 0;
 static unsigned int time_counter = 0;
+static Uint16 counter_is_stop = 0;
+//static Uint16 keys = 0;
 
 static __interrupt void cpu_timer0_isr(void);
 static void DisData_Trans(Uint16 data);
 static void show_time(Uint16 second);
+static void clear_time(void);
+static int Scan_Keys(void);
+
 
 
 void demo7(void)
@@ -95,30 +100,38 @@ void demo7(void)
 // Step 6. IDLE loop. Just sit and loop forever (optional):
   while(1){
       show_time(time_show);
-      printf("time:%ds\n",time_show);
-      struct Key_Pos keypress;
-      keypress = Scan_Key_Horizon_Vertical();
+      int key = 0;
+      if(Scan_Keys() != 0){
+          delay1(25000);
+          if(Scan_Keys() != 0){
+              key = Scan_Keys();
+          }
+      }
 
-//      printf("keypress:%d\n", keypress.val);
-      if(keypress.val == 3 && time_T<15) //when time_T = 15, T = 15*200ms=3s
-      {
+      if(key == 4 && time_T<15){ //sw3
           time_T++;
           printf("time_T:%d\n", time_T);
+          continue;
       }
-      if(keypress.val == 6) //when time_T = 1, T = 1*200ms=0.2s
-      {
-          time_T = 5;
-          printf("time_T:%d\n", time_T);
+      if(key == 2){ //sw6
+          counter_is_stop = ~counter_is_stop;
+          printf("stop/continue\n");
+          continue;
       }
-      if(keypress.val == 9 && time_T>1) //when time_T = 1, T = 1*200ms=0.2s
-      {
+      if(key == 1 && time_T>1){ //sw9
           time_T--;
           printf("time_T:%d\n", time_T);
+          continue;
       }
-
-  };
-
+      if(key == 6){ //sw3+sw6
+          clear_time();
+          continue;
+      }
+  }
 }
+
+
+
 static void DisData_Trans(Uint16 data)
 {
     DisData_Bit[3] = data / 1000;                       //千位数
@@ -133,7 +146,7 @@ static void show_time(Uint16 second)
 //    assert(second >= 0);
     if(second > 1000) second = 1000;
     DisData_Trans(second);
-
+    printf("time:");
     int Loop;
     for(Loop = 0;Loop < 4;Loop++){
         Sellect_Bit(Loop%4);                                  //选择要扫描的数码管位
@@ -141,22 +154,48 @@ static void show_time(Uint16 second)
         if(Loop < 4) printf("%d", DisData_Bit[3-Loop%4]);
         delay1(1500);
     }
-    printf("\n");
+    printf("s\n");
 
 }
 
+static void clear_time(void){
+    time_show = 0;
+    time_counter = 0;
+    printf("clear\n");
+}
+
+
+static int Scan_Keys(void){
+    GpioDataRegs.GPBCLEAR.all =  0x1;  //  |= 0000 0000 0000 0001
+    int key_press = (~(GpioDataRegs.GPBDAT.all >> 3) & 0x07);
+
+//    printf("keys:%d\n",key_press);
+    return key_press;
+}
+
+void print_bin1(unsigned int number){
+    int bit = sizeof(unsigned int)*8;
+    int i;
+    for(i = bit - 1;i >= 0;i--){
+        int bin = (number & (1 << i)) >> i;
+        printf("%d", bin);
+    }
+    printf("\n");
+}
+
+
 static __interrupt void cpu_timer0_isr(void)
 {
-//    show_time(time_show);
-    time_counter++;
-//    GpioDataRegs.GPACLEAR.all = 0x00FF;
-    if(time_counter % time_T == 0) {
-        time_show++;
+    if(counter_is_stop == 0){
+        time_counter++;
+        //    GpioDataRegs.GPACLEAR.all = 0x00FF;
+        if(time_counter % time_T == 0) {
+            time_show++;
+        }
     }
 
-
 //    printf("time_counter:%d\n", time_counter);
-   CpuTimer0.InterruptCount++;
+//   CpuTimer0.InterruptCount++;
 
    // Acknowledge this interrupt to receive more interrupts from group 1
    PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
