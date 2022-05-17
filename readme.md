@@ -39,9 +39,7 @@ Code Composer Studio
  Version: 11.2.0.00007 
 
 OS: Windows 10, v.10.0, x86_64 / win32
-Java version: 11.0.13
-
-
+GB2312
 
 ## 实验列表
 
