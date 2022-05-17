@@ -105,7 +105,7 @@ void demo6(void)
       LoopCount++;
 
 
-      KickDog(); //默认是KickDog()函数不执行，通过去掉KickDog()函数前的//，则使用KickDog()函数；
+//      KickDog(); //默认是KickDog()函数不执行，通过去掉KickDog()函数前的//，则使用KickDog()函数；
    }
 
 

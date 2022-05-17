@@ -16,3 +16,11 @@ void demo5(void);
 #define S4 GpioDataRegs.GPBDAT.bit.GPIOB4
 #define S7 GpioDataRegs.GPBDAT.bit.GPIOB3
 
+/****************条件编译*******************/
+                                                                         //(1)和(2)选择一组取消注释
+#define DEMO5   1   //基础实验  跑马灯换向和暂停                        <-----(1)
+#define DEMO5_1 0   //提高实验  矩阵键盘点亮特定的灯sw9熄灭所有灯        <-----(1)
+//#define DEMO5   0   //基础实验  跑马灯换向和暂停                        <-----(2)
+//#define DEMO5_1 1   //提高实验  矩阵键盘点亮特定的灯sw9熄灭所有灯        <-----(2)
+
+

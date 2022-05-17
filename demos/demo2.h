@@ -10,6 +10,7 @@ void Init_Keys_Gpio(void); //gpio¶Ë¿ÚÅäÖÃ×Ó³ÌÐò
 static void delay_c2(int);
 static void Scan_Key(void);
 static void LED_Stop(void);
+void print_bin(int number);
 struct Key_Pos Scan_Key_Horizon_Vertical(void);
 
 
