@@ -1,6 +1,8 @@
 #include "DSP281x_Device.h"     // DSP281x Headerfile Include File
 #include "DSP281x_Examples.h"   // DSP281x Examples Include File
 #include <stdio.h>
+
+
 /****************端口宏定义*****************/
 
 
@@ -13,15 +15,16 @@ static void LED_Stop(void);
 void print_bin(int number);
 struct Key_Pos Scan_Key_Horizon_Vertical(void);
 
-
 #ifndef _DEMO2_H_         //ifndef 就是if no define 的缩写
 
 #define _DEMO2_H_
+
 struct Key_Pos {
     int x;
     int y;
     int val;
 };
+
 #endif
 
 

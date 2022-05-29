@@ -9,6 +9,7 @@
 #include "./demos/demo7.h"
 #include "./demos/demo8.h"
 #include "./demos/demo9.h"
+#include "./demos/demoX.h"
 
 
 #define DEMO1 1         //LED和跑马灯 按键停止与继续跑马灯
@@ -20,8 +21,9 @@
 #define DEMO7 7         //作弊秒表
 #define DEMO8 8         //模拟信号AD采集
 #define DEMO9 9         //模拟信号AD采集 中断
+#define DEMOX 10        //电机控制
 
-#define RUN_DEMO  DEMO5 //选择编译的实验代码
+#define RUN_DEMO  DEMOX //选择编译的实验代码
 
 /**
  * main.c
@@ -46,6 +48,8 @@ int main(void)
     demo8();
 #elif  RUN_DEMO == DEMO9
     demo9();
+#elif  RUN_DEMO == DEMOX
+    demo10();
 #endif
 
 	return 0;
