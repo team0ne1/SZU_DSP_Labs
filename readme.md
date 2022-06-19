@@ -1,78 +1,76 @@
-# ÉîÛÚ´óÑ§ »úµçÑ§Ôº 2022Äê´º DSP¿Î³ÌÊµÑé
+# æ·±åœ³å¤§å­¦ æœºç”µå­¦é™¢ 2022å¹´æ˜¥ DSPè¯¾ç¨‹å®žéªŒ
 
 
 
-## ³ÌÐòÓëÊµÑé¶ÔÕÕ
+## ç¨‹åºä¸Žå®žéªŒå¯¹ç…§
 
-demo1:(3) LEDºÍÅÜÂíµÆ °´¼üÍ£Ö¹Óë¼ÌÐøÅÜÂíµÆ
+demo1:(3) LEDå’Œè·‘é©¬ç¯ æŒ‰é”®åœæ­¢ä¸Žç»§ç»­è·‘é©¬ç¯
 
-demo2:(5) ¾ØÕó¼üÅÌ
+demo2:(5) çŸ©é˜µé”®ç›˜
 
-demo3:(1) ´®¿ÚÓëSPIÊµÑé ÊýÂë¹Ü
+demo3:(1) ä¸²å£ä¸ŽSPIå®žéªŒ æ•°ç ç®¡
 
-demo4:(2) ÖÐ¶Ï¹ÜÀíºÍCPU¼ÆÊý 
+demo4:(2) ä¸­æ–­ç®¡ç†å’ŒCPUè®¡æ•° 
 
-demo5:(3) LEDºÍÅÜÂíµÆ»»Ïò ºÍ ¾ØÕó¼üÅÌÑ¡ÔñµÆÁÁ Á½¸öÊµÑé
+demo5:(3) LEDå’Œè·‘é©¬ç¯æ¢å‘ å’Œ çŸ©é˜µé”®ç›˜é€‰æ‹©ç¯äº® ä¸¤ä¸ªå®žéªŒ
 
-demo6:(4) ¿´ÃÅ¹·
+demo6:(4) çœ‹é—¨ç‹—
 
-demo7:(6) ×÷±×Ãë±í
+demo7:(6) ä½œå¼Šç§’è¡¨
 
-demo8:(7) Ä£ÄâÐÅºÅAD²É¼¯, 0-3VµçÑ¹±í; Ê¹ÓÃÉ¨Ãè·¨
+demo8:(7) æ¨¡æ‹Ÿä¿¡å·ADé‡‡é›†, 0-3Vç”µåŽ‹è¡¨; ä½¿ç”¨æ‰«ææ³•
 
-demo9:(7) Ä£ÄâÐÅºÅAD²É¼¯, 0-3VµçÑ¹±í; Ê¹ÓÃÖÐ¶Ï
+demo9:(7) æ¨¡æ‹Ÿä¿¡å·ADé‡‡é›†, 0-3Vç”µåŽ‹è¡¨; ä½¿ç”¨ä¸­æ–­
 
-demo9:(7) Ä£ÄâÐÅºÅAD²É¼¯, 0-3VµçÑ¹±í; Ê¹ÓÃÖÐ¶Ï
-
-demoX:(8) (9) PWM¿ØÖÆµç»ú 
+demoX:(8) (9) PWMæŽ§åˆ¶ç”µæœº 
 
 
 
-# ÊµÑé±¨¸æ
+# å®žéªŒæŠ¥å‘Š
 
-ÔÚ  `/doc` ÎÄ¼þ¼ÐÏÂ
+åœ¨  `/doc` æ–‡ä»¶å¤¹ä¸‹
 
-| ÊµÑé±¨¸æ              |
+| å®žéªŒæŠ¥å‘Š              |
 | --------------------- |
-| DSPÊµÑé±¨¸æ1µç»ú¿ØÖÆ  |
-| DSPÊµÑé±¨¸æ2ADC²ÉÑù   |
-| DSPÊµÑé±¨¸æ3×÷±×Ãë±í  |
-| DSPÊµÑé±¨¸æ4¾ØÕó¼üÅÌ  |
-| DSPÊµÑé±¨¸æ5´®¿ÚºÍSPI |
+| DSPå®žéªŒæŠ¥å‘Š1ç”µæœºæŽ§åˆ¶  |
+| DSPå®žéªŒæŠ¥å‘Š2ADCé‡‡æ ·   |
+| DSPå®žéªŒæŠ¥å‘Š3ä½œå¼Šç§’è¡¨  |
+| DSPå®žéªŒæŠ¥å‘Š4çŸ©é˜µé”®ç›˜  |
+| DSPå®žéªŒæŠ¥å‘Š5ä¸²å£å’ŒSPI |
 
 
 
-## ÔËÐÐ
+## è¿è¡Œ
 
-main.cÎÄ¼þÖÐ
-ÐÞ¸Ä `#define RUN_DEMO  DEMOx` µÄ `x` ÎªÊý×Ö
+main.cæ–‡ä»¶ä¸­
+ä¿®æ”¹ `#define RUN_DEMO  DEMOx` çš„ `x` ä¸ºæ•°å­—
 
-demo5½ÏÌØÊâ£º
+demo5è¾ƒç‰¹æ®Šï¼š
 
-ÐÞ¸Ä `demo5.h` ÎÄ¼þÖÐµÄÌõ¼þ±àÒë²ÎÊýÎª
+ä¿®æ”¹ `demo5.h` æ–‡ä»¶ä¸­çš„æ¡ä»¶ç¼–è¯‘å‚æ•°ä¸º
 
 ```c
-#define DEMO5   1   //»ù´¡ÊµÑé  ÅÜÂíµÆ»»ÏòºÍÔÝÍ£               
+#define DEMO5   1   //åŸºç¡€å®žéªŒ  è·‘é©¬ç¯æ¢å‘å’Œæš‚åœ               
 #define DEMO5_1 0   //...   
 ```
 
-»òÕß
+æˆ–è€…
 
 ~~~c
 #define DEMO5   0   //...       
-#define DEMO5_1 1   //Ìá¸ßÊµÑé  ¾ØÕó¼üÅÌµãÁÁÌØ¶¨µÄµÆsw9Ï¨ÃðËùÓÐµÆ     
+#define DEMO5_1 1   //æé«˜å®žéªŒ  çŸ©é˜µé”®ç›˜ç‚¹äº®ç‰¹å®šçš„ç¯sw9ç†„ç­æ‰€æœ‰ç¯     
 ~~~
 
-ÊµÏÖ²»Í¬ÊµÑé´úÂëµÄ±àÒë
+å®žçŽ°ä¸åŒå®žéªŒä»£ç çš„ç¼–è¯‘
 
 
 
 **Note:** 
-²»×ã£º±¾¹¤³ÌÎÄ¼þÎªGB2312±àÂë£¬Èç¹û³öÏÖÖÐÎÄÂÒÂëÇëÔÚ±à¼­Æ÷ÖÐÇÐ»»±àÂë
+ä¸è¶³ï¼šæœ¬å·¥ç¨‹æ–‡ä»¶ä¸ºGB2312ç¼–ç ï¼Œå¦‚æžœå‡ºçŽ°ä¸­æ–‡ä¹±ç è¯·åœ¨ç¼–è¾‘å™¨ä¸­åˆ‡æ¢ç¼–ç 
 
 
 
-## »·¾³
+## çŽ¯å¢ƒ
 
 Code Composer Studio 
  Version: 11.2.0.00007 
@@ -80,17 +78,17 @@ Code Composer Studio
 OS: Windows 10, v.10.0, x86_64 / win32
 GB2312
 
-## ÊµÑéÁÐ±í
+## å®žéªŒåˆ—è¡¨
 
-1. ´®¿ÚÓëSPIÊµÑé 
-2. ÖÐ¶Ï¹ÜÀíºÍCPU¼ÆÊý
-3. LEDºÍÅÜÂíµÆ
-4. ¿´ÃÅ¹·
-5. ¾ØÕó¼üÅÌ
-6. ×÷±×Ãë±í
-7. Ä£ÄâÐÅºÅAD²É¼¯ 
-8. EVÊµÑé 
-9. PWM¿ØÖÆµç»ú 
+1. ä¸²å£ä¸ŽSPIå®žéªŒ 
+2. ä¸­æ–­ç®¡ç†å’ŒCPUè®¡æ•°
+3. LEDå’Œè·‘é©¬ç¯
+4. çœ‹é—¨ç‹—
+5. çŸ©é˜µé”®ç›˜
+6. ä½œå¼Šç§’è¡¨
+7. æ¨¡æ‹Ÿä¿¡å·ADé‡‡é›† 
+8. EVå®žéªŒ 
+9. PWMæŽ§åˆ¶ç”µæœº 
 
 
 
